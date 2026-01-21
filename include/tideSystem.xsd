@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:simpleType name="tideSystemType">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="tide_free"/>
+        <xs:enumeration value="zero_tide"/>
+        <xs:enumeration value="mean_tide"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

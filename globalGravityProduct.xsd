@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           xmlns:resource="http://datacite.org/schema/kernel-4"
+           elementFormDefault="qualified">
+
+  <xs:include schemaLocation="include/vocabularies.xsd"/>
+  <xs:include schemaLocation="include/temporalType.xsd"/>
+  <xs:include schemaLocation="include/topographicType.xsd"/>
+  <xs:include schemaLocation="include/staticType.xsd"/>
+  <xs:include schemaLocation="include/ellipsoidalType.xsd"/>
+
+
+  <xs:element name="icgemExchangeRecord">
+    <xs:complexType>
+      <xs:sequence>
+        
+        <xs:element name="globalGravityProduct">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="modelName" type="xs:string"/>
+              <xs:element name="publicationYear" type="xs:gYear"/>
+              <xs:element name="modelType" type="modelTypeType"/>
+              <xs:element name="mathematicalRepresentation" type="mathematicalRepresentationType"/>
+              <xs:element name="tideSystem" type="tideSystemType"/>
+              <xs:element name="fileFormat" type="fileFormatType"/>
+              <xs:element name="degreeOrderMax" type="xs:integer"/>
+              <xs:element name="earthGravityConstant" type="xs:double"/>
+              
+              <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0"/>
+              <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0"/>
+              <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0"/>
+              <xs:element name="ellipsoidalParameters" type="ellipsoidalParameters" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

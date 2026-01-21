@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://icgem.gfz.de/vocabulary"
+           xmlns:icgv="http://icgem.gfz.de/vocabulary"
+           elementFormDefault="qualified">
+
+  <xs:simpleType name="modelTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Static"/>
+      <xs:enumeration value="Temporal"/>
+      <xs:enumeration value="Simulated"/>
+      <xs:enumeration value="Topographic"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

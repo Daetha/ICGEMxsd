@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+
+  <xs:complexType name="temporalModelsProperties">
+    <xs:sequence>
+      <xs:element name="startDate" type="xs:date"/>
+      <xs:element name="stopDate" type="xs:date"/>
+      <xs:element name="generatingInstitution" type="xs:string"/>
+      <xs:element name="release" type="xs:string"/>
+      <xs:element name="temporalResolutionDays" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
