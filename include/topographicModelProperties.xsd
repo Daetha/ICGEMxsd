@@ -6,10 +6,40 @@
 <xs:element name="topographicModelProperties" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="layerApproach" type="xs:string"/>
-            <xs:element name="forwardModellingDomain" type="xs:string"/>
-            <xs:element name="approximation" type="xs:string" minOccurs="0"/>
-            <xs:element name="densityInformation" type="xs:string"/>
+            <xs:element name="layerApproach">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="multi-layer"/>
+                  <xs:enumeration value="single-layer"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="forwardModellingDomain">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="spatial"/>
+                  <xs:enumeration value="spectral"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="approximation" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="ellipsoidal"/>
+                  <xs:enumeration value="spherical"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="densityInformation">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="constant"/>
+                  <xs:enumeration value="layer-specific density values"/>
+                  <xs:enumeration value="density model"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="densityInformationDescription" type="xs:string" minOccurs="0"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
