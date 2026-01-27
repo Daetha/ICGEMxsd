@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+
+  <xs:simpleType name="topographicDetailsEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Isostasy"/>
+      <xs:enumeration value="Bathymetry"/>
+      <xs:enumeration value="DEM/DTM"/> 
+      <xs:enumeration value="density_model"/>
+    </xs:restriction>
+  </xs:simpleType>

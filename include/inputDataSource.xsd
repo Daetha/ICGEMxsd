@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+
+  <xs:complexType name="inputDataSourcesType">
+    <xs:sequence>
+      <xs:element name="inputDataSource" type="inputDataSourceType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="inputDataSourceType">
+    <xs:sequence>
+      <xs:element name="description" type="xs:text"/>
+      <xs:element name="sourceType" type="sourceTypeType"/> <xs:element name="description" type="xs:string" minOccurs="0"/>
+
+      <xs:choice> <!-- variables specific to each kind of the data sources -->
+        
+        <xs:sequence>
+          <xs:element name="satelliteValueName" type="xs:string"/>
+          <xs:element name="satelliteValueUri" type="xs:anyURI" minOccurs="0"/>
+          <xs:element name="satelliteSchemeName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+
+        <xs:sequence>
+          <xs:element name="groundDetail" type="groundDetailsEnum"/>
+        </xs:sequence>
+
+        <xs:sequence>
+          <xs:element name="altimetryDetail" type="altimetryDetailsEnum"/>
+        </xs:sequence>
+
+        <xs:sequence>
+          <xs:element name="topographicDetail" type="topographicDetailsEnum"/>
+          <xs:element name="isDemDtm" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+
+        <xs:sequence>
+          <xs:element name="modelDetail" type="modelDetailsEnum"/>
+        </xs:sequence>
+
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

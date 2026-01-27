@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+
+  <xs:simpleType name="modelDetailsEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GGM"/> 
+      <xs:enumeration value="topographic_gravity_model"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

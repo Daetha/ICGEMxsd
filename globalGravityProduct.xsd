@@ -12,29 +12,73 @@
   <xs:include schemaLocation="include/ellipsoidalType.xsd"/>
 
 
-  <xs:element name="icgemExchangeRecord">
+  <xs:element name="globalGravityProduct">
     <xs:complexType>
       <xs:sequence>
-        
-        <xs:element name="globalGravityProduct">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="modelName" type="xs:string"/>
-              <xs:element name="publicationYear" type="xs:gYear"/>
-              <xs:element name="modelType" type="modelTypeType"/>
-              <xs:element name="mathematicalRepresentation" type="mathematicalRepresentationType"/>
-              <xs:element name="tideSystem" type="tideSystemType"/>
-              <xs:element name="fileFormat" type="fileFormatType"/>
-              <xs:element name="degreeOrderMax" type="xs:integer"/>
-              <xs:element name="earthGravityConstant" type="xs:double"/>
-              
-              <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0"/>
-              <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0"/>
-              <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0"/>
-              <xs:element name="ellipsoidalParameters" type="ellipsoidalParameters" minOccurs="0"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
+        <choice> <!-- The product is either a spherical harmonic model, MASCON or an Altimetry model (extensions are possible) -->
+        <!-- Describing the spherical harmonic model aka Global Gravitational model aka GGM aka gravity field model -->
+          <xs:element name="sphericalHarmonicModel">
+          <xs:annotation>
+              <xs:documentation>
+                Synonyms: Global Gravitational Model, GGM, Gravity Field Model.
+                Definition: A mathematical representation of the geopotential using spherical or ellipsoidal harmonic coefficients.
+              </xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="modelName" type="xs:string"/>
+                <xs:element name="publicationYear" type="xs:gYear"/>
+                <xs:element name="modelType" type="modelTypeType"/>
+                <xs:element name="mathematicalRepresentation" type="mathematicalRepresentationType"/>
+                <xs:element name="tideSystem" type="tideSystemType"/>
+                <xs:element name="fileFormat" type="fileFormatType"/>
+                <xs:element name="degreeOrderMax" type="xs:integer"/>
+                <xs:element name="earthGravityConstant" type="xs:double"/>
+                <choice> <!-- The model is either one of these three properties, which are specific to the model type -->
+                  <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0"/>
+                  <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0"/>
+                  <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0"/>
+                </choice>
+
+                <xs:element name="ellipsoidalParameters" type="ellipsoidalParameters" minOccurs="0"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <!-- Describing the MASCON model the exact datatypes are to be defined -->
+          <xs:element name="MASCON">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="longitude" type="xs:double"/>
+                <xs:element name="latitude" type="xs:double"/>
+                <xs:element name="time" type="xs:time"/>
+                <xs:element name="dataEWH" type="xs:double" minOccurs="0"/>
+                <xs:element name="uncertainty" type="xs:double" minOccurs="0"/>
+                <xs:element name="timeBound" type="xs:double" minOccurs="0"/>
+                <xs:element name="landMask" type="xs:double" minOccurs="0"/>
+                <xs:element name="masconID" type="xs:double" minOccurs="0"/>
+                <xs:element name="longitudeBounds" type="xs:double" minOccurs="0"/>
+                <xs:element name="latitudeBounds" type="xs:double" minOccurs="0"/>
+                <xs:element name="scaleFactor" type="xs:double" minOccurs="0"/>
+                <xs:element name="GAD" type="xs:double" minOccurs="0"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <!-- Describing the Altimetry model (the exact datatypes are to be defined) -->
+          <xs:element name="altimetryModel">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="longitude" type="xs:double"/>
+                <xs:element name="latitude" type="xs:double"/>
+                <xs:element name="time" type="xs:time"/>
+                <xs:element name="uncertainty" type="xs:double"/>
+                <xs:element name="timeBound" type="xs:double"/>
+                <xs:element name="landMask" type="xs:double"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </choice>
+        <xs:element name="inputDataSources" type="inputDataSourcesType" minOccurs=0 maxOccurs="unbounded"/>
+
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -1,0 +1,14 @@
+<xs:simpleType name="sourceTypeType">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="S" /> <xs:enumeration value="G" /> <xs:enumeration value="A" /> <xs:enumeration value="T" /> <xs:enumeration value="M" /> </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="groundDetailsEnum">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="terrestrial"/>
+    <xs:enumeration value="shipborne"/>
+    <xs:enumeration value="airborne"/>
+    <xs:enumeration value="ground_data_computed_from_GGM"/>
+    <xs:enumeration value="other"/>
+  </xs:restriction>
+</xs:simpleType>
