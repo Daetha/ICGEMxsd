@@ -21,12 +21,12 @@
   <!-- Simple type for description section categories -->
   <xs:simpleType name="descriptionSection">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="abstract"/>
-      <xs:enumeration value="general_model_description"/>
-      <xs:enumeration value="input_data"/>
-      <xs:enumeration value="processing_procedures"/>
-      <xs:enumeration value="specific_features_of_resulting_gravity_field"/>
-      <xs:enumeration value="other"/>
+      <xs:enumeration value="Abstract"/>
+      <xs:enumeration value="General model description"/>
+      <xs:enumeration value="Input data"/>
+      <xs:enumeration value="Processing procedures"/>
+      <xs:enumeration value="Specific features of resulting gravity field"/>
+      <xs:enumeration value="Other"/>
     </xs:restriction>
   </xs:simpleType>
 

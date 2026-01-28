@@ -36,15 +36,15 @@
               <xs:sequence>
                 <xs:element name="modelName" type="xs:string"/>
                 <xs:element name="publicationYear" type="xs:gYear"/>
-                <xs:element name="modelType" type="modelTypeType"/>
-                <xs:element name="mathematicalRepresentation" type="mathematicalRepresentationType"/>
+                <xs:element name="modelType" type="modelType"/>
+                <xs:element name="mathematicalRepresentation" type="mathematicalRepresentation"/>
                 <xs:element name="productType" type="xs:string"/>
-                <xs:element name="fileFormat" type="fileFormatType"/>
-                <xs:element name="tideSystem" type="tideSystemType"/>
+                <xs:element name="fileFormat" type="fileFormat"/>
+                <xs:element name="tideSystem" type="tideSystem"/>
                 <xs:element name="degreeOrderMax" type="xs:integer"/>
                 <xs:element name="earthGravityConstant" type="xs:double"/>
                 <xs:element name="radius" type="xs:double"/>
-                <xs:element name="errors" type="errorsType"/>
+                <xs:element name="errors" type="errors"/>
                 <xs:element name="errorHandling" type="xs:string" minOccurs="0">
                   <xs:annotation>
                     <xs:documentation>Additional information on how errors are handled or propagated</xs:documentation>
@@ -95,7 +95,7 @@
           </xs:element>
         </choice>
         <!-- Input data sources: possibly for any model -->
-        <xs:element name="inputDataSources" type="inputDataSourcesType" minOccurs=0 maxOccurs="unbounded"/>
+        <xs:element name="inputDataSources" type="inputDataSource" minOccurs=0 maxOccurs="unbounded"/>
 
       </xs:sequence>
     </xs:complexType>
