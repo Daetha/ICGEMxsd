@@ -4,6 +4,13 @@
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
 
+  <!-- Include all related data source definitions -->
+  <xs:include schemaLocation="include4datasources/inputDataSourceType.xsd"/>
+  <xs:include schemaLocation="include4datasources/groundDetails.xsd"/>
+  <xs:include schemaLocation="include4datasources/altimetryDetails.xsd"/>
+  <xs:include schemaLocation="include4datasources/elevationTerrainDetails.xsd"/>
+  <xs:include schemaLocation="include4datasources/modelDetails.xsd"/>
+
   <xs:complexType name="inputDataSourcesType">
     <xs:sequence>
       <xs:element name="inputDataSource" type="inputDataSourceType" maxOccurs="unbounded"/>
@@ -12,8 +19,8 @@
 
   <xs:complexType name="inputDataSourceType">
     <xs:sequence>
-      <xs:element name="description" type="xs:text"/>
-      <xs:element name="sourceType" type="sourceTypeType"/> <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="sourceType" type="inputDataSourceType"/>
 
       <xs:choice> <!-- variables specific to each kind of the data sources -->
         
@@ -24,20 +31,23 @@
         </xs:sequence>
 
         <xs:sequence>
-          <xs:element name="groundDetail" type="groundDetailsEnum"/>
+          <xs:element name="groundDetail" type="groundDetails"/>
         </xs:sequence>
 
         <xs:sequence>
-          <xs:element name="altimetryDetail" type="altimetryDetailsEnum"/>
+          <xs:element name="altimetryDetail" type="altimetryDetails"/>
         </xs:sequence>
 
         <xs:sequence>
-          <xs:element name="topographicDetail" type="topographicDetailsEnum"/>
-          <xs:element name="isDemDtm" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="elevationTerrainDetail" type="elevationTerrainDetails"/>
+          <xs:element name="compensationDepth" type="xs:double" minOccurs="0"/> <!-- in meters -->
+            <xs:annotation>
+              <xs:documentation>Collected only if the detail is Isostasy</xs:documentation>
+            </xs:annotation>
         </xs:sequence>
 
         <xs:sequence>
-          <xs:element name="modelDetail" type="modelDetailsEnum"/>
+          <xs:element name="modelDetail" type="modelDetails"/>
         </xs:sequence>
 
       </xs:choice>

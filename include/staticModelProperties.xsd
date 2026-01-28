@@ -3,7 +3,7 @@
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
-<xs:element name="topographicModelProperties" minOccurs="0">
+<xs:element name="staticModelProperties" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="infoTimeVariableCoefficients" type="xs:string"/>
