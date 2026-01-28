@@ -10,6 +10,7 @@
   <xs:include schemaLocation="include/topographicType.xsd"/>
   <xs:include schemaLocation="include/staticType.xsd"/>
   <xs:include schemaLocation="include/ellipsoidalType.xsd"/>
+  <xs:include schemaLocation="include/errors.xsd"/>
 
 
   <xs:element name="globalGravityProduct">
@@ -30,10 +31,19 @@
                 <xs:element name="publicationYear" type="xs:gYear"/>
                 <xs:element name="modelType" type="modelTypeType"/>
                 <xs:element name="mathematicalRepresentation" type="mathematicalRepresentationType"/>
-                <xs:element name="tideSystem" type="tideSystemType"/>
+
                 <xs:element name="fileFormat" type="fileFormatType"/>
+                <xs:element name="tideSystem" type="tideSystemType"/>
                 <xs:element name="degreeOrderMax" type="xs:integer"/>
                 <xs:element name="earthGravityConstant" type="xs:double"/>
+                <xs:element name="radius" type="xs:double"/>
+                <xs:element name="errors" type="errorsType"/>
+                <xs:element name="errorHandling" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                    <xs:documentation>Additional information on how errors are handled or propagated</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+
                 <choice> <!-- The model is either one of these three properties, which are specific to the model type -->
                   <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0"/>
                   <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0"/>
