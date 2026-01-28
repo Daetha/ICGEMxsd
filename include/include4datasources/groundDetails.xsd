@@ -5,10 +5,10 @@
 
 <xs:simpleType name="groundDetailsEnum">
   <xs:restriction base="xs:string">
-    <xs:enumeration value="terrestrial"/>
-    <xs:enumeration value="shipborne"/>
-    <xs:enumeration value="airborne"/>
-    <xs:enumeration value="ground_data_computed_from_GGM"/>
-    <xs:enumeration value="other"/>
+    <xs:enumeration value="Terrestrial"/>
+    <xs:enumeration value="Shipborne"/>
+    <xs:enumeration value="Airborne"/>
+    <xs:enumeration value="Ground data computed from GGM"/>
+    <xs:enumeration value="Other"/>
   </xs:restriction>
 </xs:simpleType>
