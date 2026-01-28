@@ -11,11 +11,18 @@
   <xs:include schemaLocation="include/staticType.xsd"/>
   <xs:include schemaLocation="include/ellipsoidalType.xsd"/>
   <xs:include schemaLocation="include/errors.xsd"/>
+  <xs:include schemaLocation="include/description.xsd"/>
+  <xs:include schemaLocation="include/inputDataSource.xsd"/>
 
 
   <xs:element name="globalGravityProduct">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="description" type="descriptionType" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>One or multiple descriptions of the gravity product model with different sections</xs:documentation>
+          </xs:annotation>
+        </xs:element>
         <choice> <!-- The product is either a spherical harmonic model, MASCON or an Altimetry model (extensions are possible) -->
         <!-- Describing the spherical harmonic model aka Global Gravitational model aka GGM aka gravity field model -->
           <xs:element name="sphericalHarmonicModel">
@@ -31,7 +38,7 @@
                 <xs:element name="publicationYear" type="xs:gYear"/>
                 <xs:element name="modelType" type="modelTypeType"/>
                 <xs:element name="mathematicalRepresentation" type="mathematicalRepresentationType"/>
-
+                <xs:element name="productType" type="xs:string"/>
                 <xs:element name="fileFormat" type="fileFormatType"/>
                 <xs:element name="tideSystem" type="tideSystemType"/>
                 <xs:element name="degreeOrderMax" type="xs:integer"/>
@@ -87,6 +94,7 @@
             </xs:complexType>
           </xs:element>
         </choice>
+        <!-- Input data sources: possibly for any model -->
         <xs:element name="inputDataSources" type="inputDataSourcesType" minOccurs=0 maxOccurs="unbounded"/>
 
       </xs:sequence>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+      Defines data types for the custom description sections of the ICGEM metadata scheme. 
+      The different parts of descriptions are denoted here as sections, with each section identified by a section attribute.
+    </xs:documentation>
+  </xs:annotation>
+
+  <!-- Simple type for description content -->
+  <xs:simpleType name="descriptionContent">
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="preserve"/>
+      <xs:maxLength value="30000"/> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Simple type for description section categories -->
+  <xs:simpleType name="descriptionSection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="abstract"/>
+      <xs:enumeration value="general_model_description"/>
+      <xs:enumeration value="input_data"/>
+      <xs:enumeration value="processing_procedures"/>
+      <xs:enumeration value="specific_features_of_resulting_gravity_field"/>
+      <xs:enumeration value="other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Complex type for description with section attribute -->
+  <xs:complexType name="descriptionType">
+    <xs:simpleContent>
+      <xs:extension base="descriptionContent">
+        <xs:attribute name="section" type="descriptionSection" use="required">
+          <xs:annotation>
+            <xs:documentation>The category or type of description section</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+</xs:schema>
