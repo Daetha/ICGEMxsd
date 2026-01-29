@@ -16,6 +16,9 @@ Welcome to the **International Centre for Global Earth Models (ICGEM)** XML Sche
 
 ## 🏗️ Schema Structure
 
+### Conceptual diagram
+![ICGEM Schema Architecture](images/schema-architecture.png)
+
 ### Root Element: `globalGravityProduct`
 
 This is the main container for all gravity field models. It can contain one of three model types:
