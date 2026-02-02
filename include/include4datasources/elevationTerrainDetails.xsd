@@ -4,7 +4,7 @@
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
 
-	<xs:simpleType name="topographicDetails">
+	<xs:simpleType name="elevationTerrainDetails">
 		<xs:restriction base="xs:string">
 		  <xs:enumeration value="Isostasy"/>
 		  <xs:enumeration value="Bathymetry"/>
