@@ -12,7 +12,7 @@
   </xs:annotation>
 
   <!-- Simple type for error classification -->
-  <xs:simpleType name="errorType">
+  <xs:simpleType name="errorsType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Calibrated">
         <xs:annotation>
@@ -33,10 +33,10 @@
   </xs:simpleType>
 
   <!-- Complex type for error information -->
-  <xs:complexType name="errorsType">
+  <xs:complexType name="errors">
     <xs:sequence>
-      <xs:element name="errorType" type="errorType"/>
-      <xs:element name="errorDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="errorsType" type="errorsType"/>
+      <xs:element name="errorsDescription" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

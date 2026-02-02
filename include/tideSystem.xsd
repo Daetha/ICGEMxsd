@@ -3,7 +3,7 @@
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
-  <xs:simpleType name="tideSystemType">
+  <xs:simpleType name="tideSystem">
       <xs:restriction base="xs:string">
         <xs:enumeration value="tide_free"/>
         <xs:enumeration value="zero_tide"/>

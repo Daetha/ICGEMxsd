@@ -3,8 +3,7 @@
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
-<?xml version="1.0" encoding="UTF-8"?>
-  <xs:simpleType name="mathematicalRepresentationType">
+  <xs:simpleType name="mathematicalRepresentation">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Spherical Harmonics"/>
       <xs:enumeration value="Gridded"/>

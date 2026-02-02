@@ -1,56 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://icgem.gfz.de/schema"
-           xmlns="http://icgem.gfz.de/schema"
-           elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://icgem.gfz.de/schema" targetNamespace="http://icgem.gfz.de/schema" elementFormDefault="qualified">
+	<!-- Include all related data source definitions -->
+	<xs:include schemaLocation="include4datasources/inputDataSourceType.xsd"/>
+	<xs:include schemaLocation="include4datasources/groundDetails.xsd"/>
+	<xs:include schemaLocation="include4datasources/altimetryDetails.xsd"/>
+	<xs:include schemaLocation="include4datasources/elevationTerrainDetails.xsd"/>
+	<xs:include schemaLocation="include4datasources/modelDetails.xsd"/>
+	<xs:complexType name="inputDataSource">
+		<xs:sequence>
+			<xs:element name="inputDataSourceType" type="inputDataSourceType" maxOccurs="1"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:choice>
+				<!-- variables specific to each kind of the data sources -->
+				<xs:sequence>
+					<xs:element name="satelliteValueName" type="xs:string"/>
+					<xs:element name="satelliteValueUri" type="xs:anyURI" minOccurs="0"/>
+					<xs:element name="satelliteSchemeName" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="groundDetail" type="groundDetails"/>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="altimetryDetail" type="altimetryDetails"/>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="modelDetail" type="modelDetails"/>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							compensationDepth is collected only if the detail is Isostasy
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="elevationTerrainDetail" type="elevationTerrainDetails"/>
 
-  <!-- Include all related data source definitions -->
-  <xs:include schemaLocation="include4datasources/inputDataSourceType.xsd"/>
-  <xs:include schemaLocation="include4datasources/groundDetails.xsd"/>
-  <xs:include schemaLocation="include4datasources/altimetryDetails.xsd"/>
-  <xs:include schemaLocation="include4datasources/elevationTerrainDetails.xsd"/>
-  <xs:include schemaLocation="include4datasources/modelDetails.xsd"/>
-
-  <xs:complexType name="inputDataSourcesType">
-    <xs:sequence>
-      <xs:element name="inputDataSource" type="inputDataSourceType" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="inputDataSourceType">
-    <xs:sequence>
-      <xs:element name="description" type="xs:string" minOccurs="0"/>
-      <xs:element name="sourceType" type="inputDataSourceType"/>
-
-      <xs:choice> <!-- variables specific to each kind of the data sources -->
-        
-        <xs:sequence>
-          <xs:element name="satelliteValueName" type="xs:string"/>
-          <xs:element name="satelliteValueUri" type="xs:anyURI" minOccurs="0"/>
-          <xs:element name="satelliteSchemeName" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-
-        <xs:sequence>
-          <xs:element name="groundDetail" type="groundDetails"/>
-        </xs:sequence>
-
-        <xs:sequence>
-          <xs:element name="altimetryDetail" type="altimetryDetails"/>
-        </xs:sequence>
-
-        <xs:sequence>
-          <xs:element name="elevationTerrainDetail" type="elevationTerrainDetails"/>
-          <xs:element name="compensationDepth" type="xs:double" minOccurs="0"/> <!-- in meters -->
-            <xs:annotation>
-              <xs:documentation>Collected only if the detail is Isostasy</xs:documentation>
-            </xs:annotation>
-        </xs:sequence>
-
-        <xs:sequence>
-          <xs:element name="modelDetail" type="modelDetails"/>
-        </xs:sequence>
-
-      </xs:choice>
-    </xs:sequence>
-  </xs:complexType>
+					<xs:element name="compensationDepth" type="xs:double" minOccurs="0"/>
+					<!-- in meters -->
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

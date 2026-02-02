@@ -4,9 +4,10 @@
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
 
-  <xs:simpleType name="altimetryDetailsEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Altimetric gridded datasets"/>
-      <xs:enumeration value="Direct observations from altimetry satellites"/>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="altimetryDetails">
+		<xs:restriction base="xs:string">
+		  <xs:enumeration value="Altimetric gridded datasets"/>
+		  <xs:enumeration value="Direct observations from altimetry satellites"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

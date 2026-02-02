@@ -3,7 +3,7 @@
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
-  <xs:simpleType name="fileFormatType">
+  <xs:simpleType name="fileFormat">
     <xs:restriction base="xs:string">
       <xs:enumeration value="icgem2.0"/>
       <xs:enumeration value="NetCDF"/>

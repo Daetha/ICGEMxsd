@@ -1,14 +1,11 @@
-<xs:simpleType name="sourceTypeType">
-  <xs:restriction base="xs:string">
-    <xs:enumeration value="S" /> <xs:enumeration value="G" /> <xs:enumeration value="A" /> <xs:enumeration value="T" /> <xs:enumeration value="M" /> </xs:restriction>
-</xs:simpleType>
-
-<xs:simpleType name="groundDetailsEnum">
-  <xs:restriction base="xs:string">
-    <xs:enumeration value="Terrestrial"/>
-    <xs:enumeration value="Shipborne"/>
-    <xs:enumeration value="Airborne"/>
-    <xs:enumeration value="Ground data computed from GGM"/>
-    <xs:enumeration value="Other"/>
-  </xs:restriction>
-</xs:simpleType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://icgem.gfz.de/schema" targetNamespace="http://icgem.gfz.de/schema" elementFormDefault="qualified">
+	<xs:simpleType name="groundDetails">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Terrestrial"/>
+			<xs:enumeration value="Shipborne"/>
+			<xs:enumeration value="Airborne"/>
+			<xs:enumeration value="Ground data computed from GGM"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

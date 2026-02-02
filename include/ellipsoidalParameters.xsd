@@ -3,14 +3,12 @@
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
-      <xs:element name="ellipsoidalModelProperties" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
+    <xs:complexType name="ellipsoidalParameters">
+        <xs:sequence>
             <xs:element name="semimajorAxisA" type="xs:double"/>
             <xs:element name="semiminorAxisB" type="xs:double" minOccurs="0"/>
             <xs:element name="flattening" type="xs:double" minOccurs="0"/>
             <xs:element name="inverseFlattening" type="xs:double" minOccurs="0"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

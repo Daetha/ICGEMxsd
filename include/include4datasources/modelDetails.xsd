@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://icgem.gfz.de/schema"
-           xmlns="http://icgem.gfz.de/schema"
-           elementFormDefault="qualified">
-
-  <xs:simpleType name="modelDetailsEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Global Gravitational Model"/> 
-      <xs:enumeration value="Topographic gravity model"/>
-    </xs:restriction>
-  </xs:simpleType>
-
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://icgem.gfz.de/schema" targetNamespace="http://icgem.gfz.de/schema" elementFormDefault="qualified">
+	<xs:simpleType name="modelDetails">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Global Gravitational Model"/>
+			<xs:enumeration value="Topographic gravity model"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
