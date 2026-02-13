@@ -28,7 +28,7 @@
         </xs:element>
         <xs:choice> <!-- The product is either a spherical harmonic model, MASCON or an Altimetry model (extensions are possible) -->
         <!-- Describing the spherical harmonic model aka Global Gravitational model aka GGM aka gravity field model -->
-          <xs:element name="sphericalHarmonicModel">
+          <xs:element name="gravityFieldModel">
           <xs:annotation>
               <xs:documentation>
                 Synonyms: Global Gravitational Model, GGM, Gravity Field Model.
