@@ -57,6 +57,26 @@ Satellite altimetry-derived gravity models.
 
 ---
 
+## ㍽ Naming convention
+
+To ensure consistency across the registry and compatibility with our database exports, all XSD files must adhere to the following naming standards:
+
+| Type of Component | Style | Example |
+| :--- | :--- | :--- |
+| **Elements** | `camelCase` | `<xs:element name="modelName" ... />` |
+| **Complex/Simple Types** | `camelCase` | `<xs:complexType name="temporalModelsProperties" />` |
+| **Enumeration Values** | `Sentence case` | `<xs:enumeration value="Satellite altimetry" />` |
+| **Attributes** | `lowercase` | `<xs:attribute name="type" ... />` |
+
+- Sentence case means the following: "First letter in senntence is capital other words are separated with spaces"
+- If possible, the name of the element and the type of the element are the same. The definitions of type do not receive a type suffix. 
+
+#### Example: 
+`<xs:element name="ellipsoidalParameters" type="ellipsoidalParameters" minOccurs="0"/>`
+Easy and simple!
+
+---
+
 ## 📊 Model Types
 
 Each model can be one of the following types:
@@ -86,8 +106,6 @@ Models can reference multiple input data sources with specific details:
 ### With ELMO Editor
 The **ELMO (GFZ Data Services' Metadata Editor)** provides a user-friendly interface to:
 - ✅ Create new model metadata
-- ✅ Edit existing model information
-- ✅ Validate against the schema
 - ✅ Generate XML that conforms to this schema
 
 **Access:** [ELMO for ICGEM](https://env.rz-vm182.gfz.de/elmo-gem)
@@ -136,7 +154,7 @@ ICGEM provides:
 - 🎨 Web-based visualization tools
 - 🧮 Calculation services for gravity field functionals
 - 📚 Tutorials and documentation
-- 🆔 Digital Object Identifiers (DOI) for datasets
+- 🆔 Digital Object Identifiers (DOI) for gravity products
 
 **Learn more:** [icgem.gfz.de](https://icgem.gfz.de/home)
 
