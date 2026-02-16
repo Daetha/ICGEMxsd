@@ -17,7 +17,7 @@ Welcome to the **International Centre for Global Earth Models (ICGEM)** XML Sche
 ## 🏗️ Schema Structure
 
 ### Conceptual diagram
-![ICGEM Schema Architecture](images/schema-architecture.png)
+![ICGEM Schema Architecture](img/conceptual diagram.png)
 
 ### Root Element: `globalGravityProduct`
 
