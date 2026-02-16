@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://icgem.gfz.de/schema"
-           xmlns="http://icgem.gfz.de/schema"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns="http://icgem.gfz.de/schema" 
+           targetNamespace="http://icgem.gfz.de/schema" 
            elementFormDefault="qualified">
 
-  <xs:complexType name="temporalModelsProperties">
-    <xs:sequence>
-      <xs:element name="startDate" type="xs:date"/>
-      <xs:element name="stopDate" type="xs:date"/>
-      <xs:element name="generatingInstitution" type="xs:string"/>
-      <xs:element name="release" type="xs:string"/>
-      <xs:element name="temporalResolutionDays" type="xs:integer"/>
-    </xs:sequence>
-  </xs:complexType>
-
+	<xs:complexType name="temporalModelsProperties">
+		<xs:sequence>
+			<xs:element name="startDate" type="xs:date"/>
+			<xs:element name="stopDate" type="xs:date"/>
+			<xs:element name="generatingInstitution" type="xs:string"/>
+			<xs:element name="release" type="xs:string"/>
+			<xs:element name="temporalResolution">
+			  <xs:complexType>
+				<xs:simpleContent>
+				  <xs:extension base="xs:decimal">
+					<xs:attribute name="uom" type="xs:string" default="Day">
+					  <xs:annotation>
+						<xs:documentation>Unit of Measurement. Defaults to 'Day'.</xs:documentation>
+					  </xs:annotation>
+					</xs:attribute>
+				  </xs:extension>
+				</xs:simpleContent>
+			  </xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

@@ -5,9 +5,9 @@
            elementFormDefault="qualified">
   <xs:simpleType name="mathematicalRepresentation">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Spherical Harmonics"/>
+      <xs:enumeration value="Spherical harmonics"/>
       <xs:enumeration value="Gridded"/>
-      <xs:enumeration value="Ellipsoidal Harmonics"/>
+      <xs:enumeration value="Ellipsoidal harmonics"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
