@@ -10,7 +10,7 @@
     <xs:include schemaLocation="include4datasources/elevationTerrainDetails.xsd"/>
     <xs:include schemaLocation="include4datasources/modelDetails.xsd"/>
 
-    <xs:complexType name="InputDataSourceType">
+    <xs:complexType name="inputDataSource">
         <xs:sequence>
             <xs:element name="inputDataSourceType" type="inputDataSourceType"/>
             <xs:element name="description" type="xs:string" minOccurs="0"/>

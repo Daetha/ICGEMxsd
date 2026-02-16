@@ -4,7 +4,7 @@
            targetNamespace="http://icgem.gfz.de/schema" 
            elementFormDefault="qualified">
 
-	<xs:complexType name="TemporalModelsProperties">
+	<xs:complexType name="temporalModelsProperties">
 		<xs:sequence>
 			<xs:element name="startDate" type="xs:date"/>
 			<xs:element name="stopDate" type="xs:date"/>
