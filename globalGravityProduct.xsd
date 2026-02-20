@@ -21,10 +21,15 @@
   <xs:element name="globalGravityProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="description" type="descriptionType" minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="descriptions" minOccurs="0">
           <xs:annotation>
-            <xs:documentation>One or multiple descriptions of the gravity product model with different sections</xs:documentation>
+            <xs:documentation>Wrapper element containing multiple descriptions of the gravity product model with different sections</xs:documentation>
           </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="description" type="descriptionType" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
         </xs:element>
         <xs:choice> <!-- The product is either a spherical harmonic model, MASCON or an Altimetry model (extensions are possible) -->
         <!-- Describing the spherical harmonic model aka Global Gravitational model aka GGM aka gravity field model -->
@@ -98,7 +103,7 @@
           </xs:element>
         </xs:choice>
         <!-- Input data sources: possibly for any model -->
-        <xs:element name="inputDataSources" type="inputDataSource" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="inputDataSource" type="inputDataSource" minOccurs="0" maxOccurs="unbounded"/>
 
       </xs:sequence>
     </xs:complexType>
