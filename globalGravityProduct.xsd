@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            xmlns:resource="http://datacite.org/schema/kernel-4"
@@ -17,10 +18,9 @@
   <xs:include schemaLocation="include/fileFormat.xsd"/>
   <xs:include schemaLocation="include/tideSystem.xsd"/>
 
-
   <xs:element name="globalGravityProduct">
     <xs:complexType>
-      <xs:sequence>
+      <xs:all>
         <xs:element name="descriptions" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Wrapper element containing multiple descriptions of the gravity product model with different sections</xs:documentation>
@@ -31,48 +31,42 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:choice> <!-- The product is either a spherical harmonic model, MASCON or an Altimetry model (extensions are possible) -->
-        <!-- Describing the spherical harmonic model aka Global Gravitational model aka GGM aka gravity field model -->
+
+        <!-- exactly one of these — xs:choice inside xs:all is valid in XSD 1.1 -->
+        <xs:choice>
           <xs:element name="gravityFieldModel">
-          <xs:annotation>
+            <xs:annotation>
               <xs:documentation>
                 Synonyms: Global Gravitational Model, GGM, Gravity Field Model.
                 Definition: A mathematical representation of the geopotential using spherical or ellipsoidal harmonic coefficients.
               </xs:documentation>
             </xs:annotation>
             <xs:complexType>
-				<xs:sequence>
-					<xs:element name="modelName" type="xs:string"/>
-					<xs:element name="publicationYear" type="xs:gYear"/>
-					<xs:element name="modelType" type="modelType"/>
-					<xs:element name="mathematicalRepresentation" type="mathematicalRepresentation"/>
-					<xs:element name="productType" type="xs:string"/>
-					<xs:element name="fileFormat" type="fileFormat"/>
-					<xs:element name="tideSystem" type="tideSystem"/>
-					<xs:element name="degreeOrderMax" type="xs:integer"/>
-					<xs:element name="earthGravityConstant" type="xs:double"/>
-					<xs:element name="radius" type="xs:double"/>
-					<xs:element name="errors" type="errors"/>
-					<xs:element name="errorHandling" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                    <xs:documentation>Additional information on how errors are handled or propagated</xs:documentation>
-                  </xs:annotation>
-                </xs:element>
-
-                <xs:choice> <!-- The model is either one of these three properties, which are specific to the model type -->
-                  <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0"/>
-                  <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0"/>
-                  <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0"/>
-                </xs:choice>
-
+              <xs:all>
+                <xs:element name="modelName" type="xs:string"/>
+                <xs:element name="publicationYear" type="xs:gYear"/>
+                <xs:element name="modelType" type="modelType"/>
+                <xs:element name="mathematicalRepresentation" type="mathematicalRepresentation"/>
+                <xs:element name="productType" type="xs:string"/>
+                <xs:element name="fileFormat" type="fileFormat"/>
+                <xs:element name="tideSystem" type="tideSystem"/>
+                <xs:element name="degreeOrderMax" type="xs:integer"/>
+                <xs:element name="earthGravityConstant" type="xs:double"/>
+                <xs:element name="radius" type="xs:double"/>
+                <xs:element name="errors" type="errors"/>
+                <xs:element name="errorHandling" type="xs:string" minOccurs="0"/>
+                <!-- exactly one of these three, or none -->
+                <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0"/>
+                <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0"/>
+                <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0"/>
                 <xs:element name="ellipsoidalParameters" type="ellipsoidalParameters" minOccurs="0"/>
-              </xs:sequence>
+              </xs:all>
             </xs:complexType>
           </xs:element>
-          <!-- Describing the MASCON model the exact datatypes are to be defined -->
+
           <xs:element name="MASCON">
             <xs:complexType>
-              <xs:sequence>
+              <xs:all>
                 <xs:element name="longitude" type="xs:double"/>
                 <xs:element name="latitude" type="xs:double"/>
                 <xs:element name="time" type="xs:time"/>
@@ -85,27 +79,28 @@
                 <xs:element name="latitudeBounds" type="xs:double" minOccurs="0"/>
                 <xs:element name="scaleFactor" type="xs:double" minOccurs="0"/>
                 <xs:element name="GAD" type="xs:double" minOccurs="0"/>
-              </xs:sequence>
+              </xs:all>
             </xs:complexType>
           </xs:element>
-          <!-- Describing the Altimetry model (the exact datatypes are to be defined) -->
+
           <xs:element name="altimetryModel">
             <xs:complexType>
-              <xs:sequence>
+              <xs:all>
                 <xs:element name="longitude" type="xs:double"/>
                 <xs:element name="latitude" type="xs:double"/>
                 <xs:element name="time" type="xs:time"/>
                 <xs:element name="uncertainty" type="xs:double"/>
                 <xs:element name="timeBound" type="xs:double"/>
                 <xs:element name="landMask" type="xs:double"/>
-              </xs:sequence>
+              </xs:all>
             </xs:complexType>
           </xs:element>
         </xs:choice>
-        <!-- Input data sources: possibly for any model -->
+
+        <!-- repeating, order-free — valid in XSD 1.1 -->
         <xs:element name="inputDataSource" type="inputDataSource" minOccurs="0" maxOccurs="unbounded"/>
 
-      </xs:sequence>
+      </xs:all>
     </xs:complexType>
   </xs:element>
 
