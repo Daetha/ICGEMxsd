@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>File format types for gravity field model storage</xs:documentation>
+  </xs:annotation>
+  
   <xs:simpleType name="fileFormat">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="icgem2.0"/>
-      <xs:enumeration value="NetCDF"/>
-      <xs:enumeration value="ASCII"/>
+      <xs:enumeration value="icgem2.0">
+        <xs:annotation>
+          <xs:documentation>ICGEM version 2.0 text format</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NetCDF">
+        <xs:annotation>
+          <xs:documentation>NetCDF binary format</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ASCII">
+        <xs:annotation>
+          <xs:documentation>Plain ASCII text format</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

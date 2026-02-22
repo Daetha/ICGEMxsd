@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Altimetry data details for gravity field models</xs:documentation>
+  </xs:annotation>
 
-	<xs:simpleType name="altimetryDetails">
-		<xs:restriction base="xs:string">
-		  <xs:enumeration value="Altimetric gridded datasets"/>
-		  <xs:enumeration value="Direct observations from altimetry satellites"/>
-		</xs:restriction>
-	</xs:simpleType>
+  <xs:simpleType name="altimetryDetails">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Altimetric gridded datasets">
+        <xs:annotation>
+          <xs:documentation>Gridded altimetry-derived gravity anomalies</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Direct observations from altimetry satellites">
+        <xs:annotation>
+          <xs:documentation>Direct observations from satellite altimetry missions</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

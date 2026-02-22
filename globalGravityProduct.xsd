@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           version="1.1"
+           version="1"
+           xs:version="1.1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
-           xmlns:resource="http://datacite.org/schema/kernel-4"
            elementFormDefault="qualified">
 
   <xs:include schemaLocation="include/temporalModelProperties.xsd"/>
@@ -21,18 +21,20 @@
   <xs:element name="globalGravityProduct">
     <xs:complexType>
       <xs:all>
-        <xs:element name="descriptions" minOccurs="0">
+        <xs:element name="descriptions" minOccurs="0" maxOccurs="1">
           <xs:annotation>
             <xs:documentation>Wrapper element containing multiple descriptions of the gravity product model with different sections</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="description" type="descriptionType" maxOccurs="unbounded"/>
+              <xs:element name="description" type="description" minOccurs="1" maxOccurs="unbounded"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
 
-        <!-- exactly one of these — xs:choice inside xs:all is valid in XSD 1.1 -->
+        <xs:annotation>
+          <xs:documentation>Exactly one of the following model types is required: gravityFieldModel, masconModel, or altimetryDerivedModel. This xs:choice inside xs:all is valid in XSD 1.1</xs:documentation>
+        </xs:annotation>
         <xs:choice>
           <xs:element name="gravityFieldModel">
             <xs:annotation>
@@ -43,61 +45,76 @@
             </xs:annotation>
             <xs:complexType>
               <xs:all>
-                <xs:element name="modelName" type="xs:string"/>
-                <xs:element name="publicationYear" type="xs:gYear"/>
-                <xs:element name="modelType" type="modelType"/>
-                <xs:element name="mathematicalRepresentation" type="mathematicalRepresentation"/>
-                <xs:element name="productType" type="xs:string"/>
-                <xs:element name="fileFormat" type="fileFormat"/>
-                <xs:element name="tideSystem" type="tideSystem"/>
-                <xs:element name="degreeOrderMax" type="xs:integer"/>
-                <xs:element name="earthGravityConstant" type="xs:double"/>
-                <xs:element name="radius" type="xs:double"/>
-                <xs:element name="errors" type="errors"/>
-                <xs:element name="errorHandling" type="xs:string" minOccurs="0"/>
-                <!-- exactly one of these three, or none -->
-                <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0"/>
-                <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0"/>
-                <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0"/>
-                <xs:element name="ellipsoidalParameters" type="ellipsoidalParameters" minOccurs="0"/>
+                <xs:element name="modelName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="publicationYear" type="xs:gYear" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="modelType" type="modelType" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="mathematicalRepresentation" type="mathematicalRepresentation" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="productType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="fileFormat" type="fileFormat" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="tideSystem" type="tideSystem" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="degreeOrderMax" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="earthGravityConstant" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="radius" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="errors" type="errors" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="errorHandling" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:annotation>
+                  <xs:documentation>Exactly one of the following temporal/topographic/static/ellipsoidal properties, or none</xs:documentation>
+                </xs:annotation>
+                <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="ellipsoidalParameters" type="ellipsoidalParameters" minOccurs="0" maxOccurs="1"/>
               </xs:all>
             </xs:complexType>
           </xs:element>
 
-          <xs:element name="MASCON">
+          <xs:element name="masconModel">
+            <xs:annotation>
+              <xs:documentation>
+                Mass concentration (MASCON) model representation.
+                NOTE: This model is preliminary and will be defined with more details in future schema versions.
+                Current structure is a placeholder for MASCON coefficient grids and associated metadata.
+              </xs:documentation>
+            </xs:annotation>
             <xs:complexType>
               <xs:all>
-                <xs:element name="longitude" type="xs:double"/>
-                <xs:element name="latitude" type="xs:double"/>
-                <xs:element name="time" type="xs:time"/>
-                <xs:element name="dataEWH" type="xs:double" minOccurs="0"/>
-                <xs:element name="uncertainty" type="xs:double" minOccurs="0"/>
-                <xs:element name="timeBound" type="xs:double" minOccurs="0"/>
-                <xs:element name="landMask" type="xs:double" minOccurs="0"/>
-                <xs:element name="masconID" type="xs:double" minOccurs="0"/>
-                <xs:element name="longitudeBounds" type="xs:double" minOccurs="0"/>
-                <xs:element name="latitudeBounds" type="xs:double" minOccurs="0"/>
-                <xs:element name="scaleFactor" type="xs:double" minOccurs="0"/>
-                <xs:element name="GAD" type="xs:double" minOccurs="0"/>
+                <xs:element name="longitude" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="latitude" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="time" type="xs:time" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="dataEWH" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="uncertainty" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="timeBound" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="landMask" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="masconID" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="longitudeBounds" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="latitudeBounds" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="scaleFactor" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="GAD" type="xs:double" minOccurs="0" maxOccurs="1"/>
               </xs:all>
             </xs:complexType>
           </xs:element>
 
-          <xs:element name="altimetryModel">
+          <xs:element name="altimetryDerivedModel">
+            <xs:annotation>
+              <xs:documentation>
+                Altimetry-derived gravity model representation.
+                NOTE: This model is preliminary and will be defined with more details in future schema versions.
+                Current structure is a placeholder for altimetry-derived gravity field coefficients and metadata.
+              </xs:documentation>
+            </xs:annotation>
             <xs:complexType>
               <xs:all>
-                <xs:element name="longitude" type="xs:double"/>
-                <xs:element name="latitude" type="xs:double"/>
-                <xs:element name="time" type="xs:time"/>
-                <xs:element name="uncertainty" type="xs:double"/>
-                <xs:element name="timeBound" type="xs:double"/>
-                <xs:element name="landMask" type="xs:double"/>
+                <xs:element name="longitude" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="latitude" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="time" type="xs:time" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="uncertainty" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="timeBound" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="landMask" type="xs:double" minOccurs="1" maxOccurs="1"/>
               </xs:all>
             </xs:complexType>
           </xs:element>
         </xs:choice>
 
-        <!-- repeating, order-free — valid in XSD 1.1 -->
         <xs:element name="inputDataSource" type="inputDataSource" minOccurs="0" maxOccurs="unbounded"/>
 
       </xs:all>

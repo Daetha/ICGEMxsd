@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Elevation and terrain model details for gravity field models</xs:documentation>
+  </xs:annotation>
 
-	<xs:simpleType name="elevationTerrainDetails">
-		<xs:restriction base="xs:string">
-		  <xs:enumeration value="Isostasy"/>
-		  <xs:enumeration value="Bathymetry"/>
-		  <xs:enumeration value="Digital Elevation Model (DEM/DTM)"/> 
-		  <xs:enumeration value="Density model"/>
-		</xs:restriction>
-	</xs:simpleType>
+  <xs:simpleType name="elevationTerrainDetails">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Isostasy">
+        <xs:annotation>
+          <xs:documentation>Isostatic elevation/terrain model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Bathymetry">
+        <xs:annotation>
+          <xs:documentation>Ocean bathymetry model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Digital Elevation Model (DEM/DTM)">
+        <xs:annotation>
+          <xs:documentation>Digital Elevation Model or Digital Terrain Model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Density model">
+        <xs:annotation>
+          <xs:documentation>Direct density model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

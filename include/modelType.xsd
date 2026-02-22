@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns:icgv="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Model type classification for gravity field models</xs:documentation>
+  </xs:annotation>
 
   <xs:simpleType name="modelType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Static"/>
-      <xs:enumeration value="Temporal"/>
-      <xs:enumeration value="Simulated"/>
-      <xs:enumeration value="Topographic"/>
+      <xs:enumeration value="Static">
+        <xs:annotation>
+          <xs:documentation>Time-independent static gravity field model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Temporal">
+        <xs:annotation>
+          <xs:documentation>Time-dependent temporal gravity field model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Simulated">
+        <xs:annotation>
+          <xs:documentation>Simulated or synthetic gravity field model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Topographic">
+        <xs:annotation>
+          <xs:documentation>Gravity field model based on topographic data</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

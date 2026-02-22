@@ -1,11 +1,39 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://icgem.gfz.de/schema" targetNamespace="http://icgem.gfz.de/schema" elementFormDefault="qualified">
-	<xs:simpleType name="groundDetails">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Terrestrial"/>
-			<xs:enumeration value="Shipborne"/>
-			<xs:enumeration value="Airborne"/>
-			<xs:enumeration value="Ground data computed from GGM"/>
-			<xs:enumeration value="Other"/>
-		</xs:restriction>
-	</xs:simpleType>
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           version="1"
+           xmlns="http://icgem.gfz.de/schema" 
+           targetNamespace="http://icgem.gfz.de/schema" 
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Ground measurement details for input data sources</xs:documentation>
+  </xs:annotation>
+  <xs:simpleType name="groundDetails">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Terrestrial">
+        <xs:annotation>
+          <xs:documentation>Ground-based terrestrial gravity measurements</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Shipborne">
+        <xs:annotation>
+          <xs:documentation>Ship-borne gravity measurements</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Airborne">
+        <xs:annotation>
+          <xs:documentation>Airborne gravity measurements</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Ground data computed from GGM">
+        <xs:annotation>
+          <xs:documentation>Ground data derived from globally fitted gravity field models</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation>Other types of ground measurements</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

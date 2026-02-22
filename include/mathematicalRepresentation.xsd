@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Mathematical representation types for gravity field models</xs:documentation>
+  </xs:annotation>
+  
   <xs:simpleType name="mathematicalRepresentation">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Spherical harmonics"/>
-      <xs:enumeration value="Gridded"/>
-      <xs:enumeration value="Ellipsoidal harmonics"/>
+      <xs:enumeration value="Spherical harmonics">
+        <xs:annotation>
+          <xs:documentation>Representation using spherical harmonic coefficients</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Gridded">
+        <xs:annotation>
+          <xs:documentation>Gridded representation of the gravity field</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Ellipsoidal harmonics">
+        <xs:annotation>
+          <xs:documentation>Representation using ellipsoidal harmonic coefficients</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

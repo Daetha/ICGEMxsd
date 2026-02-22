@@ -1,46 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           version="1"
            xmlns="http://icgem.gfz.de/schema" 
            targetNamespace="http://icgem.gfz.de/schema" 
            elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Input data source type definitions for gravity field models</xs:documentation>
+  </xs:annotation>
 
-    <xs:include schemaLocation="include4datasources/inputDataSourceType.xsd"/>
-    <xs:include schemaLocation="include4datasources/groundDetails.xsd"/>
-    <xs:include schemaLocation="include4datasources/altimetryDetails.xsd"/>
-    <xs:include schemaLocation="include4datasources/elevationTerrainDetails.xsd"/>
-    <xs:include schemaLocation="include4datasources/modelDetails.xsd"/>
+  <xs:include schemaLocation="include4datasources/inputDataSourceType.xsd"/>
+  <xs:include schemaLocation="include4datasources/groundDetails.xsd"/>
+  <xs:include schemaLocation="include4datasources/altimetryDetails.xsd"/>
+  <xs:include schemaLocation="include4datasources/elevationTerrainDetails.xsd"/>
 
-    <xs:complexType name="inputDataSource">
+  <xs:simpleType name="modelDetails">
+    <xs:annotation>
+      <xs:documentation>Types of model details for gravity field models</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Global gravitational model">
+        <xs:annotation>
+          <xs:documentation>Global gravitational model type</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Topographic gravity model">
+        <xs:annotation>
+          <xs:documentation>Topographic gravity model type</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="inputDataSource">
+    <xs:annotation>
+      <xs:documentation>Container for input data source information with type-specific details</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="inputDataSourceType" type="inputDataSourceType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      
+      <xs:choice>
         <xs:sequence>
-            <xs:element name="inputDataSourceType" type="inputDataSourceType"/>
-            <xs:element name="description" type="xs:string" minOccurs="0"/>
-            
-            <xs:choice>
-                <xs:sequence>
-                    <xs:element name="satelliteValueName" type="xs:string"/>
-                    <xs:element name="satelliteValueUri" type="xs:anyURI" minOccurs="0"/>
-                    <xs:element name="satelliteSchemeName" type="xs:string" minOccurs="0"/>
-                </xs:sequence>
-
-                <xs:element name="groundDetail" type="groundDetails"/>
-
-                <xs:element name="altimetryDetail" type="altimetryDetails"/>
-
-                <xs:element name="modelDetail" type="modelDetails"/>
-
-                <xs:sequence>
-                    <xs:element name="elevationTerrainDetail" type="elevationTerrainDetails"/>
-                    <xs:element name="compensationDepth" minOccurs="0">
-                        <xs:complexType>
-                            <xs:simpleContent>
-                                <xs:extension base="xs:double">
-                                    <xs:attribute name="uom" type="xs:string" fixed="m"/>
-                                </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:choice>
+          <xs:annotation>
+            <xs:documentation>Satellite data source specification</xs:documentation>
+          </xs:annotation>
+          <xs:element name="satelliteValueName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="satelliteValueUri" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="satelliteSchemeName" type="xs:string" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
-    </xs:complexType>
+
+        <xs:element name="groundDetail" type="groundDetails" minOccurs="1" maxOccurs="1"/>
+
+        <xs:element name="altimetryDetail" type="altimetryDetails" minOccurs="1" maxOccurs="1"/>
+
+        <xs:element name="modelDetail" type="modelDetails" minOccurs="1" maxOccurs="1"/>
+
+        <xs:sequence>
+          <xs:annotation>
+            <xs:documentation>Elevation/Terrain data source specification</xs:documentation>
+          </xs:annotation>
+          <xs:element name="elevationTerrainDetail" type="elevationTerrainDetails" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="compensationDepth" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Compensation depth for Airy or Pratt isostasy models</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:double">
+                  <xs:attribute name="uom" type="xs:string" fixed="m" minOccurs="0" maxOccurs="1"/>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

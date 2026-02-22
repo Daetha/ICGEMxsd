@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
-    <xs:complexType name="ellipsoidalParameters">
-        <xs:sequence>
-            <xs:element name="semimajorAxisA" type="xs:double"/>
-            <xs:element name="semiminorAxisB" type="xs:double" minOccurs="0"/>
-            <xs:element name="flattening" type="xs:double" minOccurs="0"/>
-            <xs:element name="inverseFlattening" type="xs:double" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
+  <xs:annotation>
+    <xs:documentation>Ellipsoidal reference parameter definitions</xs:documentation>
+  </xs:annotation>
+  
+  <xs:complexType name="ellipsoidalParameters">
+    <xs:sequence>
+      <xs:element name="semimajorAxisA" type="xs:double" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="semiminorAxisB" type="xs:double" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="flattening" type="xs:double" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="inverseFlattening" type="xs:double" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

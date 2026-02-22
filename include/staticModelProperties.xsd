@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
-    <xs:complexType name="staticModelProperties">
-          <xs:sequence>
-            <xs:element name="infoTimeVariableCoefficients" type="xs:string"/>
-          </xs:sequence>
-    </xs:complexType>
+  <xs:annotation>
+    <xs:documentation>Static gravity field model properties</xs:documentation>
+  </xs:annotation>
+  
+  <xs:complexType name="staticModelProperties">
+    <xs:sequence>
+      <xs:element name="infoTimeVariableCoefficients" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

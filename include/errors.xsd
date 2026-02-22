@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
 
   <xs:annotation>
     <xs:documentation>
-      Error Type Definition
+      Error Type Definition.
       Defines the types of errors used in global gravity product models.
+      The error structure is intentionally minimal to support broad model compatibility.
+      Scientific models may extend this schema to include additional error statistics, scales, and units as needed.
     </xs:documentation>
   </xs:annotation>
 
-  <!-- Simple type for error classification -->
   <xs:simpleType name="errorsType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Calibrated">
@@ -32,11 +34,10 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <!-- Complex type for error information -->
   <xs:complexType name="errors">
     <xs:sequence>
-      <xs:element name="errorsType" type="errorsType"/>
-      <xs:element name="errorsDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="errorsType" type="errorsType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="errorsDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
