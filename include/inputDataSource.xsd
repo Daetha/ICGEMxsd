@@ -67,7 +67,7 @@
             <xs:complexType>
               <xs:simpleContent>
                 <xs:extension base="xs:double">
-                  <xs:attribute name="uom" type="xs:string" fixed="m" minOccurs="0" maxOccurs="1"/>
+                  <xs:attribute name="uom" type="xs:string" fixed="m" use="optional"/>
                 </xs:extension>
               </xs:simpleContent>
             </xs:complexType>

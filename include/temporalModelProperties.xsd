@@ -21,7 +21,7 @@
         <xs:complexType>
           <xs:simpleContent>
             <xs:extension base="xs:decimal">
-              <xs:attribute name="uom" type="xs:string" default="Day" minOccurs="0" maxOccurs="1">
+              <xs:attribute name="uom" type="xs:string" default="Day" use="optional">
                 <xs:annotation>
                   <xs:documentation>Unit of Measurement. Defaults to 'Day'.</xs:documentation>
                 </xs:annotation>
