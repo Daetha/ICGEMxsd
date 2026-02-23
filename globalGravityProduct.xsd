@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            version="1"
-           xs:version="1.1"
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
@@ -20,18 +19,7 @@
 
   <xs:element name="globalGravityProduct">
     <xs:complexType>
-      <xs:all>
-        <xs:element name="descriptions" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>Wrapper element containing multiple descriptions of the gravity product model with different sections</xs:documentation>
-          </xs:annotation>
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="description" type="description" minOccurs="1" maxOccurs="unbounded"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-
+      <xs:sequence>
         <xs:choice>
           <xs:annotation>
             <xs:documentation>Exactly one of the following model types is required: gravityFieldModel, masconModel, or altimetryDerivedModel. This xs:choice inside xs:all is valid in XSD 1.1</xs:documentation>
@@ -57,9 +45,7 @@
                 <xs:element name="radius" type="xs:double" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="errors" type="errors" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="errorHandling" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:annotation>
-                  <xs:documentation>Exactly one of the following temporal/topographic/static/ellipsoidal properties, or none</xs:documentation>
-                </xs:annotation>
+
                 <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0" maxOccurs="1"/>
@@ -116,8 +102,17 @@
         </xs:choice>
 
         <xs:element name="inputDataSource" type="inputDataSource" minOccurs="0" maxOccurs="unbounded"/>
-
-      </xs:all>
+        <xs:element name="descriptions" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Wrapper element containing multiple descriptions of the gravity product model with different sections</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="description" type="description" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 
