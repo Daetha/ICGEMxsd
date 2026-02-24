@@ -10,7 +10,7 @@
   
   <xs:complexType name="ellipsoidalParameters">
     <xs:sequence>
-      <xs:element name="semimajorAxisA" type="xs:double" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="semimajorAxisA" type="xs:double" minOccurs="0" maxOccurs="1"/>
       <xs:element name="semiminorAxisB" type="xs:double" minOccurs="0" maxOccurs="1"/>
       <xs:element name="flattening" type="xs:double" minOccurs="0" maxOccurs="1"/>
       <xs:element name="inverseFlattening" type="xs:double" minOccurs="0" maxOccurs="1"/>

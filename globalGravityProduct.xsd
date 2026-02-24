@@ -34,15 +34,15 @@
             <xs:complexType>
               <xs:all>
                 <xs:element name="modelName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="publicationYear" type="xs:gYear" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="publicationYear" type="xs:gYear" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="modelType" type="modelType" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="mathematicalRepresentation" type="mathematicalRepresentation" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="productType" type="xs:string" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="fileFormat" type="fileFormat" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="productType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="fileFormat" type="fileFormat" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="tideSystem" type="tideSystem" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="degreeOrderMax" type="xs:integer" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="earthGravityConstant" type="xs:double" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="radius" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="radius" type="xs:double" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="errors" type="errors" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="errorHandling" type="xs:string" minOccurs="0" maxOccurs="1"/>
 
@@ -93,16 +93,16 @@
                 <xs:element name="longitude" type="xs:double" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="latitude" type="xs:double" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="time" type="xs:time" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="uncertainty" type="xs:double" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="timeBound" type="xs:double" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="landMask" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="uncertainty" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="timeBound" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="landMask" type="xs:double" minOccurs="0" maxOccurs="1"/>
               </xs:all>
             </xs:complexType>
           </xs:element>
         </xs:choice>
 
         <xs:element name="inputDataSource" type="inputDataSource" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element name="descriptions" minOccurs="1" maxOccurs="1">
+        <xs:element name="descriptions" minOccurs="0" maxOccurs="1">
           <xs:annotation>
             <xs:documentation>Wrapper element containing multiple descriptions of the gravity product model with different sections</xs:documentation>
           </xs:annotation>

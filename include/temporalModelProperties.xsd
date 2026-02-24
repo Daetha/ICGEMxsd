@@ -12,9 +12,9 @@
     <xs:sequence>
       <xs:element name="startDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
       <xs:element name="stopDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="generatingInstitution" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="release" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="temporalResolution" minOccurs="1" maxOccurs="1">
+      <xs:element name="generatingInstitution" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="release" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="temporalResolution" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>The temporal resolution of the gravity field model</xs:documentation>
         </xs:annotation>
