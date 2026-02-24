@@ -14,7 +14,7 @@
     </xs:documentation>
   </xs:annotation>
 
-  <xs:simpleType name="errorsType">
+  <xs:simpleType name="errorType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Calibrated">
         <xs:annotation>
@@ -36,8 +36,8 @@
 
   <xs:complexType name="errors">
     <xs:sequence>
-      <xs:element name="errorsType" type="errorsType" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="errorsDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="errorType" type="errorsType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="errorHandling" type="xs:string" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
