@@ -4,6 +4,9 @@
            xmlns="http://icgem.gfz.de/schema" 
            targetNamespace="http://icgem.gfz.de/schema" 
            elementFormDefault="qualified">
+  
+  <xs:include schemaLocation="./densityInformation.xsd"/>
+
   <xs:annotation>
     <xs:documentation>Topographic model properties for gravity field models based on topographic data</xs:documentation>
   </xs:annotation>
@@ -43,19 +46,8 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="densityInformation" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>Type of density information used in the model</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Constant"/>
-            <xs:enumeration value="Layer-specific density values"/>
-            <xs:enumeration value="Density model"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="densityInformationDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <!-- Density information for topographic GGMs can be general or provided separately for crust and mantle.-->
+      <xs:element name="densityInformation" type="densityInformation" minOccurs="0" maxOccurs="2"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

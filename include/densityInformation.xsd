@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Density information information sources and descriptions. Used in topographic harmonic coefficients models (topographic GGMs)</xs:documentation>
+  </xs:annotation>
+
+    <xs:complexType name="densityInformation">
+        <xs:annotation>
+        <xs:documentation>Density information for topographic GGMs can be general or provided separately for crust and mantle.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+        <xs:element name="densityInformationDomain" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+            <xs:documentation>What part of the Lithosphere the density information applies to</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Crust"/>
+                <xs:enumeration value="Mantle"/>
+                <xs:enumeration value="Whole"/>
+            </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+        <xs:element name="densityInformationType" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+            <xs:documentation>Type of density information used in the model</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Constant"/>
+                <xs:enumeration value="Layer-specific density values"/>
+                <xs:enumeration value="Density model"/>
+            </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+        <xs:element name="densityInformationDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
