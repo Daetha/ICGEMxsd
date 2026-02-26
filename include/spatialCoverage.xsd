@@ -5,9 +5,9 @@ version="1" targetNamespace="http://icgem.gfz.de/schema" xmlns="http://icgem.gfz
              schemaLocation="https://schema.datacite.org/meta/kernel-4.5/metadata.xsd"/>
              
   <xs:complexType name="spatialCoverage">
-	<xs:sequence>
-	  <xs:any namespace="http://datacite.org/schema/kernel-4" processContents="lax"/>
-	</xs:sequence>
+    <xs:sequence>
+      <xs:any namespace="http://datacite.org/schema/kernel-4" processContents="lax"/>
+    </xs:sequence>
   </xs:complexType>
 	
 </xs:schema>
