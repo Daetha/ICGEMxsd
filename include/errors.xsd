@@ -1,44 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           version="1"
-           targetNamespace="http://icgem.gfz.de/schema"
-           xmlns="http://icgem.gfz.de/schema"
-           elementFormDefault="qualified">
-
-  <xs:annotation>
-    <xs:documentation>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1" targetNamespace="http://icgem.gfz.de/schema" xmlns="http://icgem.gfz.de/schema" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
       Error Type Definition.
       Defines the types of errors used in global gravity product models.
       The error structure is intentionally minimal to support broad model compatibility.
       Scientific models may extend this schema to include additional error statistics, scales, and units as needed.
     </xs:documentation>
-  </xs:annotation>
-
-  <xs:simpleType name="errorType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Calibrated">
-        <xs:annotation>
-          <xs:documentation>Calibrated errors derived from comparison with independent data</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Formal">
-        <xs:annotation>
-          <xs:documentation>Formal errors from the inversion process</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="No">
-        <xs:annotation>
-          <xs:documentation>No errors provided</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="errors">
-    <xs:sequence>
-      <xs:element name="errorType" type="errorsType" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="errorHandling" type="xs:string" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-
+	</xs:annotation>
+	<xs:simpleType name="errorType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Calibrated">
+				<xs:annotation>
+					<xs:documentation>Calibrated errors derived from comparison with independent data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Formal">
+				<xs:annotation>
+					<xs:documentation>Formal errors from the inversion process</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="No">
+				<xs:annotation>
+					<xs:documentation>No errors provided</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="errors">
+		<xs:sequence>
+			<xs:element name="errorType" type="errorType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="errorHandling" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
