@@ -123,7 +123,9 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-      </xs:sequence>
+        <!-- absolute extension point for any elements from other namespaces -->
+        <xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+      </xs:sequence>      
     </xs:complexType>
   </xs:element>
 
