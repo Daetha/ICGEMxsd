@@ -1,53 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-           version="1"
-           xmlns="http://icgem.gfz.de/schema" 
-           targetNamespace="http://icgem.gfz.de/schema" 
-           elementFormDefault="qualified">
-  
-  <xs:include schemaLocation="./densityInformation.xsd"/>
-
-  <xs:annotation>
-    <xs:documentation>Topographic model properties for gravity field models based on topographic data</xs:documentation>
-  </xs:annotation>
-  
-  <xs:complexType name="topographicModelProperties">
-    <xs:sequence>
-      <xs:element name="layerApproach" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>The approach used to model topographic layers</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Multi-layer"/>
-            <xs:enumeration value="Single-layer"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="forwardModellingDomain" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>The domain in which forward modelling is performed</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Spatial"/>
-            <xs:enumeration value="Spectral"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="approximation" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>The spherical/ellipsoidal approximation used</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Ellipsoidal"/>
-            <xs:enumeration value="Spherical"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <!-- Density information for topographic GGMs can be general or provided separately for crust and mantle.-->
-      <xs:element name="densityInformation" type="densityInformation" minOccurs="0" maxOccurs="2"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1" xmlns="http://icgem.gfz.de/schema" targetNamespace="http://icgem.gfz.de/schema" elementFormDefault="qualified">
+	<xs:include schemaLocation="densityInformation.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Topographic model properties for gravity field models based on topographic data</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="topographicModelProperties">
+		<xs:sequence>
+			<xs:element name="layerApproach" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The approach used to model topographic layers</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Multi-layer"/>
+						<xs:enumeration value="Single-layer"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="forwardModellingDomain" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The domain in which forward modelling is performed</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Spatial"/>
+						<xs:enumeration value="Spectral"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="approximation" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The spherical/ellipsoidal approximation used</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Ellipsoidal"/>
+						<xs:enumeration value="Spherical"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<!-- Density information for topographic GGMs can be general or provided separately for crust and mantle.-->
+			<xs:element name="densityInformation" type="densityInformation" minOccurs="0" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

@@ -5,8 +5,7 @@
            xmlns="http://icgem.gfz.de/schema"
            xmlns:dc="http://datacite.org/schema/kernel-4"
            elementFormDefault="qualified">
-  <xs:import namespace="http://datacite.org/schema/kernel-4" 
-             schemaLocation="https://schema.datacite.org/meta/kernel-4.5/metadata.xsd"/>
+
   <xs:include schemaLocation="include/temporalModelProperties.xsd"/>
   <xs:include schemaLocation="include/topographicModelProperties.xsd"/>
   <xs:include schemaLocation="include/staticModelProperties.xsd"/>
@@ -18,6 +17,8 @@
   <xs:include schemaLocation="include/mathematicalRepresentation.xsd"/>
   <xs:include schemaLocation="include/fileFormat.xsd"/>
   <xs:include schemaLocation="include/tideSystem.xsd"/>
+  <xs:include schemaLocation="include/spatialCoverage.xsd"/>
+
 
   <xs:element name="globalGravityProduct">
     <xs:complexType>
@@ -102,7 +103,7 @@
                 <xs:element name="gravityFieldMethod" type="xs:string" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="tideSystem" type="tideSystem" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="calculationMethod" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element ref="dc:geoLocations" minOccurs="0"/>
+                <xs:element name="spatialCoverage" type="spatialCoverage" minOccurs="0"/>
                 <xs:element name="time" type="xs:time" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="uncertainty" type="xs:double" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="timeBound" type="xs:double" minOccurs="0" maxOccurs="1"/>
