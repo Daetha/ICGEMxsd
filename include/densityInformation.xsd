@@ -32,7 +32,6 @@
             <xs:simpleType>
             <xs:restriction base="xs:string">
                 <xs:enumeration value="Constant"/>
-                <xs:enumeration value="Layer-specific density values"/>
                 <xs:enumeration value="Density model"/>
             </xs:restriction>
             </xs:simpleType>

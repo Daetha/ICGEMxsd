@@ -52,18 +52,15 @@
     <xs:annotation>
       <xs:documentation>Container for a description section with a specific category and text content</xs:documentation>
     </xs:annotation>
-    <xs:sequence>
-      <xs:element name="section" type="descriptionSection" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>The category or type of this description section</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="content" type="xs:string" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>The text content of the description (up to 30,000 characters)</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="section" type="descriptionSection" use="required">
+          <xs:annotation>
+            <xs:documentation>The category or type of this description section</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
   </xs:complexType>
 
 </xs:schema>
