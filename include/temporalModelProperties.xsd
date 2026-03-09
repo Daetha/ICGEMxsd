@@ -10,8 +10,8 @@
 
   <xs:complexType name="temporalModelsProperties">
     <xs:sequence>
-      <xs:element name="startDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="stopDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="startDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="stopDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
       <xs:element name="generatingInstitution" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="release" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="temporalResolution" minOccurs="0" maxOccurs="1">
