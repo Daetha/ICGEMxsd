@@ -48,7 +48,6 @@
                 <xs:element name="radius" type="xs:double" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="errors" type="errors" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="errorHandling" type="xs:string" minOccurs="0" maxOccurs="1"/>
-
                 <xs:element name="temporalModelProperties" type="temporalModelsProperties" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="topographicModelProperties" type="topographicModelProperties" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="staticModelProperties" type="staticModelProperties" minOccurs="0" maxOccurs="1"/>

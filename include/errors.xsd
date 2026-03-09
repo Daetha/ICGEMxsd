@@ -3,9 +3,7 @@
 	<xs:annotation>
 		<xs:documentation>
       Error Type Definition.
-      Defines the types of errors used in global gravity product models.
-      The error structure is intentionally minimal to support broad model compatibility.
-      Scientific models may extend this schema to include additional error statistics, scales, and units as needed.
+      Defines the types of errors included in the coefficients of the global gravity product models.
     </xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="errorType">
@@ -30,7 +28,6 @@
 	<xs:complexType name="errors">
 		<xs:sequence>
 			<xs:element name="errorType" type="errorType" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="errorHandling" type="xs:string" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
