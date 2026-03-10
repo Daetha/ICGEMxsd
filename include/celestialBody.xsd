@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns:icgv="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Celestial body classification for gravity field products</xs:documentation>
+  </xs:annotation>
+
+  <xs:simpleType name="celestialBody">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Moon of the Earth"/>
+      <xs:enumeration value="Mars"/>
+      <xs:enumeration value="Ceres"/>
+      <xs:enumeration value="Earth"/>
+      <xs:enumeration value="Venus"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

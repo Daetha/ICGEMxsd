@@ -14,6 +14,7 @@
   <xs:include schemaLocation="include/description.xsd"/>
   <xs:include schemaLocation="include/inputDataSource.xsd"/>
   <xs:include schemaLocation="include/modelType.xsd"/>
+  <xs:include schemaLocation="include/celestialBody.xsd"/>
   <xs:include schemaLocation="include/mathematicalRepresentation.xsd"/>
   <xs:include schemaLocation="include/fileFormat.xsd"/>
   <xs:include schemaLocation="include/tideSystem.xsd"/>
@@ -39,6 +40,7 @@
                 <xs:element name="modelName" type="xs:string" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="publicationYear" type="xs:gYear" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="modelType" type="modelType" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="celestialBody" type="celestialBody" minOccurs="0" maxOccurs="1" default="Earth"/>
                 <xs:element name="mathematicalRepresentation" type="mathematicalRepresentation" minOccurs="1" maxOccurs="1"/>
                 <xs:element name="productType" type="xs:string" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="fileFormat" type="fileFormat" minOccurs="0" maxOccurs="1"/>
