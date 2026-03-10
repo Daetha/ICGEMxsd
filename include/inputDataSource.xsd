@@ -47,6 +47,7 @@
           <xs:element name="satelliteValueName" type="xs:string" minOccurs="1" maxOccurs="1"/>
           <xs:element name="satelliteValueUri" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
           <xs:element name="satelliteSchemeName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="satelliteValueUri" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
 
         <xs:element name="groundDetail" type="groundDetails" minOccurs="1" maxOccurs="1"/>
