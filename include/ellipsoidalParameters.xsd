@@ -14,6 +14,7 @@
       <xs:element name="semiminorAxisB" type="xs:double" minOccurs="0" maxOccurs="1"/>
       <xs:element name="flattening" type="xs:double" minOccurs="0" maxOccurs="1"/>
       <xs:element name="inverseFlattening" type="xs:double" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="eccentricity" type="xs:double" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
