@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Product type classification for altimetry-derived gravity field models</xs:documentation>
+  </xs:annotation>
+
+  <xs:simpleType name="altimetryProductType">
+    <xs:annotation>
+      <xs:documentation>
+        Sub-category of content within an altimetry-derived gravity field model package.
+        Each product type represents a distinct physical quantity derived from satellite altimetry.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MeanSeaSurface">
+        <xs:annotation>
+          <xs:documentation>Mean Sea Surface (MSS): time-averaged height of the sea surface above the reference ellipsoid</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MeanDynamicOceanTopography">
+        <xs:annotation>
+          <xs:documentation>Mean Dynamic Ocean Topography (MDT): difference between mean sea surface and geoid height</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Errors">
+        <xs:annotation>
+          <xs:documentation>Error estimates associated with the altimetry-derived products</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Bathymetry">
+        <xs:annotation>
+          <xs:documentation>Ocean bathymetry derived from altimetric gravity anomalies</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GravityOverOceans">
+        <xs:annotation>
+          <xs:documentation>Gravity field over oceans derived from satellite altimetry</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Error information type for altimetry-derived gravity field models</xs:documentation>
+  </xs:annotation>
+
+  <xs:complexType name="altimetryError">
+    <xs:annotation>
+      <xs:documentation>
+        Describes whether error estimates are included in the altimetry-derived product file
+        and provides associated metadata. Error sharing applies per product type within the package.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="errorsIncluded" type="xs:boolean" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Indicates whether error estimates are included in the product file</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="errorDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Description of the error estimation approach or content (e.g. formal errors, calibrated errors)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="errorUnit" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Unit of measurement for the error values (e.g. mGal, m, mm/yr)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

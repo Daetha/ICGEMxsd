@@ -8,6 +8,7 @@
 
   <xs:include schemaLocation="include/temporalModelProperties.xsd"/>
   <xs:include schemaLocation="include/topographicModelProperties.xsd"/>
+  <xs:include schemaLocation="include/altimetryDerivedModelProperties.xsd"/>
   <xs:include schemaLocation="include/staticModelProperties.xsd"/>
   <xs:include schemaLocation="include/ellipsoidalParameters.xsd"/>
   <xs:include schemaLocation="include/description.xsd"/>
@@ -83,32 +84,19 @@
             </xs:complexType>
           </xs:element>
 
-          <xs:element name="altimetryDerivedModel">
+          <xs:element name="altimetryDerivedModels">
             <xs:annotation>
               <xs:documentation>
-                Altimetry-derived gravity model representation.
-                NOTE: This model is preliminary and will be defined with more details in future schema versions.
-                Current structure is a placeholder for altimetry-derived gravity field coefficients and metadata.
+                Collection of altimetry-derived gravity field model product entries.
+                Each altimetryDerivedModel child describes one product type within the package
+                (e.g. Mean Sea Surface, Mean Dynamic Ocean Topography, Bathymetry).
               </xs:documentation>
             </xs:annotation>
             <xs:complexType>
-              <xs:all>
-                <xs:element name="modelName" type="xs:string" minOccurs="1" maxOccurs="1"/>
-                <xs:element name="publicationYear" type="xs:gYear" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="productType" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="releaseDataFormat" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="dataFormat" type="fileFormat" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="referenceGravityField" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="referenceEllipsoid" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="gravityFieldMethod" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="tideSystem" type="tideSystem" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="calculationMethod" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="spatialCoverage" type="spatialCoverage" minOccurs="0"/>
-                <xs:element name="time" type="xs:time" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="uncertainty" type="xs:double" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="timeBound" type="xs:double" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="landMask" type="xs:double" minOccurs="0" maxOccurs="1"/>
-              </xs:all>
+              <xs:sequence>
+                <xs:element name="altimetryDerivedModel" type="altimetryDerivedModelProperties"
+                            minOccurs="1" maxOccurs="unbounded"/>
+              </xs:sequence>
             </xs:complexType>
           </xs:element>
         </xs:choice>

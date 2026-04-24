@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Reference ellipsoid type for altimetry-derived gravity field models</xs:documentation>
+  </xs:annotation>
+
+  <xs:simpleType name="altimetryReferenceEllipsoid">
+    <xs:annotation>
+      <xs:documentation>
+        Reference ellipsoid used for the altimetry-derived product computations.
+        When "Other" is selected, provide a description in the accompanying
+        referenceEllipsoidSpecification element.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WGS 84">
+        <xs:annotation>
+          <xs:documentation>World Geodetic System 1984</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TOPEX">
+        <xs:annotation>
+          <xs:documentation>TOPEX/Poseidon reference ellipsoid (semi-major axis 6378136.3 m, flattening 1/298.257)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GRS 80">
+        <xs:annotation>
+          <xs:documentation>Geodetic Reference System 1980</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation>Other reference ellipsoid; describe in the referenceEllipsoidSpecification element</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

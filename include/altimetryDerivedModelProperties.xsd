@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+      Altimetry-derived gravity field model properties for the ICGEM metadata schema.
+      Includes all sub-types from include4altimetryderived/ and defines the
+      altimetryDerivedModelProperties complex type.
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:include schemaLocation="tideSystem.xsd"/>
+  <xs:include schemaLocation="spatialCoverage.xsd"/>
+  <xs:include schemaLocation="include4altimetryderived/altimetryProductType.xsd"/>
+  <xs:include schemaLocation="include4altimetryderived/altimetryReferenceEllipsoid.xsd"/>
+  <xs:include schemaLocation="include4altimetryderived/altimetryDataFormat.xsd"/>
+  <xs:include schemaLocation="include4altimetryderived/altimetrySpatialResolution.xsd"/>
+  <xs:include schemaLocation="include4altimetryderived/altimetryTemporalCoverage.xsd"/>
+  <xs:include schemaLocation="include4altimetryderived/altimetryError.xsd"/>
+  <xs:include schemaLocation="include4altimetryderived/altimetryGeostrophicVelocity.xsd"/>
+
+  <xs:complexType name="altimetryDerivedModelProperties">
+    <xs:annotation>
+      <xs:documentation>
+        Properties of a single altimetry-derived gravity field model product entry.
+        Altimetry-derived models are distributed as a package covering multiple product
+        types (MSS, MDT, bathymetry, gravity over oceans, errors); each entry in the
+        altimetryDerivedModels wrapper describes one such product type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+
+      <!-- Identification -->
+      <xs:element name="modelName" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Name of the altimetry-derived model or product package</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="publicationYear" type="xs:gYear" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Year the product was published or released</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Product categorisation -->
+      <xs:element name="productType" type="altimetryProductType" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Sub-category describing the content of this dataset entry within the altimetry-derived
+            model package (e.g. MeanSeaSurface, Bathymetry, GravityOverOceans).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Format -->
+      <xs:element name="releaseDataFormat" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Format in which the data were originally released (e.g. NetCDF-3, NetCDF-4)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dataFormat" type="altimetryDataFormat" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Data format of the product file. Altimetry-derived models are distributed exclusively in NetCDF format.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Reference frame -->
+      <xs:element name="referenceGravityField" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Geoid or global gravity field model used as a reference when computing this product.
+            May differ between product types (e.g. XGM2008, EIGEN-6).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="referenceEllipsoid" type="altimetryReferenceEllipsoid" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Reference ellipsoid used for product computations (WGS 84, TOPEX, GRS 80, or Other)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="referenceEllipsoidSpecification" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Free-text specification of the reference ellipsoid when referenceEllipsoid is set to "Other"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Spatial and temporal coverage -->
+      <xs:element name="spatialResolution" type="altimetrySpatialResolution" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Spatial resolution of the product grid (default unit: arcmin)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="spatialCoverage" type="spatialCoverage" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Geographic extent of the product. Unlike global gravity field models, altimetry-derived
+            products may not have global coverage (e.g. ocean-only).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="temporalCoverage" type="altimetryTemporalCoverage" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Start and stop dates of the satellite altimetry observation period used to derive the product</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Physical method -->
+      <xs:element name="gravityFieldMethod" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Method applied to derive the gravity field quantity from altimetry measurements</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tideSystem" type="tideSystem" default="Mean-tide" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Tide system convention applied in the product. Defaults to Mean-tide for altimetry-derived models.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="calculationMethod" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Numerical method used in product computation (e.g. FFT, LSC — Least Squares Collocation)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <!-- Quality and derived quantities -->
+      <xs:element name="error" type="altimetryError" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Error information for this product entry; error availability may differ between product types within the package</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geostrophicVelocity" type="altimetryGeostrophicVelocity" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Geostrophic velocity derived as a spatial derivative of the dynamic ocean topography (default unit: m/s)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="errorOfGeostrophicVelocity" type="altimetryGeostrophicVelocity" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Uncertainty of the geostrophic velocity estimate (default unit: m/s)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:all>
+  </xs:complexType>
+
+</xs:schema>

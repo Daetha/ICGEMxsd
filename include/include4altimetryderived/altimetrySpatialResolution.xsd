@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Spatial resolution type for altimetry-derived gravity field models</xs:documentation>
+  </xs:annotation>
+
+  <xs:complexType name="altimetrySpatialResolution">
+    <xs:annotation>
+      <xs:documentation>
+        Spatial resolution of the altimetry-derived product grid, expressed as a decimal
+        value with an optional unit of measurement attribute. Defaults to arc-minutes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="uom" type="xs:string" default="arcmin" use="optional">
+          <xs:annotation>
+            <xs:documentation>Unit of measurement for spatial resolution. Defaults to 'arcmin' (arc-minutes). Other common values: 'deg' (degrees), 'arcsec' (arc-seconds).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+</xs:schema>

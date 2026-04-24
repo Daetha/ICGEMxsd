@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Temporal coverage type for altimetry-derived gravity field models</xs:documentation>
+  </xs:annotation>
+
+  <xs:complexType name="altimetryTemporalCoverage">
+    <xs:annotation>
+      <xs:documentation>
+        Time span covered by the satellite altimetry observations used to derive the product.
+        Unlike global gravity field models, altimetry-derived products may cover a restricted time period.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="startDate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Start date of the altimetry observation period</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="stopDate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>End date of the altimetry observation period</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

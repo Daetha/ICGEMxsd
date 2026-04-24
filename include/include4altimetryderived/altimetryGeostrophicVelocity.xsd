@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Geostrophic velocity type for altimetry-derived gravity field models</xs:documentation>
+  </xs:annotation>
+
+  <xs:complexType name="altimetryGeostrophicVelocity">
+    <xs:annotation>
+      <xs:documentation>
+        Geostrophic velocity derived as a spatial derivative of the dynamic ocean topography,
+        expressed as a decimal value with an optional unit of measurement attribute.
+        Defaults to metres per second (m/s).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute name="uom" type="xs:string" default="m/s" use="optional">
+          <xs:annotation>
+            <xs:documentation>Unit of measurement for geostrophic velocity. Defaults to 'm/s'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+</xs:schema>
