@@ -4,6 +4,8 @@
            targetNamespace="http://icgem.gfz.de/schema"
            xmlns="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
+  <xs:include schemaLocation="../unitOfMeasurement.xsd"/>
+
   <xs:annotation>
     <xs:documentation>Geostrophic velocity type for altimetry-derived gravity field models</xs:documentation>
   </xs:annotation>
@@ -18,7 +20,7 @@
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="xs:double">
-        <xs:attribute name="uom" type="xs:string" default="m/s" use="optional">
+        <xs:attribute name="uom" type="unitOfMeasurement" default="m/s" use="optional">
           <xs:annotation>
             <xs:documentation>Unit of measurement for geostrophic velocity. Defaults to 'm/s'.</xs:documentation>
           </xs:annotation>

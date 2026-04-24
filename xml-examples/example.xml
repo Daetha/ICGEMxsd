@@ -35,83 +35,55 @@
 			<icgv:semimajorAxisA>3.1415926535897900073734945</icgv:semimajorAxisA>
 		</icgv:ellipsoidalParameters>
 	</icgv:gravityFieldModel>
-	<icgv:inputDataSource>
-		<icgv:inputDataSourceType>Satellite</icgv:inputDataSourceType>
+	<icgv:inputDataSource type="Satellite">
 		<icgv:description>String</icgv:description>
 		<icgv:satelliteValueName>String</icgv:satelliteValueName>
 		<icgv:satelliteValueUri>http://www.altova.com/</icgv:satelliteValueUri>
 		<icgv:satelliteSchemeName>String</icgv:satelliteSchemeName>
 	</icgv:inputDataSource>
-	<icgv:inputDataSource>
-		<icgv:inputDataSourceType>Altimetry</icgv:inputDataSourceType>
+	<icgv:inputDataSource type="Altimetry">
 		<icgv:description>String</icgv:description>
 		<icgv:satelliteValueName>String</icgv:satelliteValueName>
 		<icgv:satelliteValueUri>http://www.altova.com/</icgv:satelliteValueUri>
 		<icgv:satelliteSchemeName>String</icgv:satelliteSchemeName>
 	</icgv:inputDataSource>
-	<icgv:inputDataSource>
-		<icgv:inputDataSourceType>Ground data</icgv:inputDataSourceType>
+	<icgv:inputDataSource type="Ground data">
 		<icgv:description>String</icgv:description>
 		<icgv:satelliteValueName>String</icgv:satelliteValueName>
 		<icgv:satelliteValueUri>http://www.altova.com/</icgv:satelliteValueUri>
 		<icgv:satelliteSchemeName>String</icgv:satelliteSchemeName>
 	</icgv:inputDataSource>
-	<icgv:inputDataSource>
-		<icgv:inputDataSourceType>Elevation/Terrain</icgv:inputDataSourceType>
+	<icgv:inputDataSource type="Elevation/Terrain">
 		<icgv:description>String</icgv:description>
 		<icgv:satelliteValueName>String</icgv:satelliteValueName>
 		<icgv:satelliteValueUri>http://www.altova.com/</icgv:satelliteValueUri>
 		<icgv:satelliteSchemeName>String</icgv:satelliteSchemeName>
 	</icgv:inputDataSource>
-	<icgv:inputDataSource>
-		<icgv:inputDataSourceType>Model</icgv:inputDataSourceType>
+	<icgv:inputDataSource type="Model">
 		<icgv:description>String</icgv:description>
 		<icgv:satelliteValueName>String</icgv:satelliteValueName>
 		<icgv:satelliteValueUri>http://www.altova.com/</icgv:satelliteValueUri>
 		<icgv:satelliteSchemeName>String</icgv:satelliteSchemeName>
 	</icgv:inputDataSource>
-	<icgv:inputDataSource>
-		<icgv:inputDataSourceType>Satellite</icgv:inputDataSourceType>
+	<icgv:inputDataSource type="Satellite">
 		<icgv:description>String</icgv:description>
 		<icgv:satelliteValueName>String</icgv:satelliteValueName>
 		<icgv:satelliteValueUri>http://www.altova.com/</icgv:satelliteValueUri>
 		<icgv:satelliteSchemeName>String</icgv:satelliteSchemeName>
 	</icgv:inputDataSource>
-	<icgv:inputDataSource>
-		<icgv:inputDataSourceType>Altimetry</icgv:inputDataSourceType>
+	<icgv:inputDataSource type="Altimetry">
 		<icgv:description>String</icgv:description>
 		<icgv:satelliteValueName>String</icgv:satelliteValueName>
 		<icgv:satelliteValueUri>http://www.altova.com/</icgv:satelliteValueUri>
 		<icgv:satelliteSchemeName>String</icgv:satelliteSchemeName>
 	</icgv:inputDataSource>
 	<icgv:descriptions>
-		<icgv:description>
-			<icgv:section>Abstract</icgv:section>
-			<icgv:content>String</icgv:content>
-		</icgv:description>
-		<icgv:description>
-			<icgv:section>General model description</icgv:section>
-			<icgv:content>String</icgv:content>
-		</icgv:description>
-		<icgv:description>
-			<icgv:section>Input data</icgv:section>
-			<icgv:content>String</icgv:content>
-		</icgv:description>
-		<icgv:description>
-			<icgv:section>Processing procedures</icgv:section>
-			<icgv:content>String</icgv:content>
-		</icgv:description>
-		<icgv:description>
-			<icgv:section>Specific features of resulting gravity field</icgv:section>
-			<icgv:content>String</icgv:content>
-		</icgv:description>
-		<icgv:description>
-			<icgv:section>Other</icgv:section>
-			<icgv:content>String</icgv:content>
-		</icgv:description>
-		<icgv:description>
-			<icgv:section>Abstract</icgv:section>
-			<icgv:content>String</icgv:content>
-		</icgv:description>
+		<icgv:description section="Abstract">String</icgv:description>
+		<icgv:description section="General model description">String</icgv:description>
+		<icgv:description section="Input data">String</icgv:description>
+		<icgv:description section="Processing procedures">String</icgv:description>
+		<icgv:description section="Specific features of resulting gravity field">String</icgv:description>
+		<icgv:description section="Other">String</icgv:description>
+		<icgv:description section="Abstract">String</icgv:description>
 	</icgv:descriptions>
 </icgv:globalGravityProduct>

@@ -13,13 +13,13 @@
   <xs:include schemaLocation="include4datasources/altimetryDetails.xsd"/>
   <xs:include schemaLocation="include4datasources/elevationTerrainDetails.xsd"/>
   <xs:include schemaLocation="include4datasources/modelDetails.xsd"/>
+  <xs:include schemaLocation="unitOfMeasurement.xsd"/>
 
   <xs:complexType name="inputDataSource">
     <xs:annotation>
       <xs:documentation>Container for input data source information with type-specific details</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="inputDataSourceType" type="inputDataSourceType" minOccurs="1" maxOccurs="1"/>
       <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
       
       <xs:choice>
@@ -57,7 +57,7 @@
             <xs:complexType>
               <xs:simpleContent>
                 <xs:extension base="xs:double">
-                  <xs:attribute name="uom" type="xs:string" fixed="m" use="optional"/>
+                  <xs:attribute name="uom" type="unitOfMeasurement" fixed="m" use="optional"/>
                 </xs:extension>
               </xs:simpleContent>
             </xs:complexType>
@@ -65,5 +65,10 @@
         </xs:sequence>
       </xs:choice>
     </xs:sequence>
+    <xs:attribute name="type" type="inputDataSourceType" use="required">
+      <xs:annotation>
+        <xs:documentation>Classification of the input data source (Satellite, Altimetry, Ground data, Elevation/Terrain, or Model)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
 </xs:schema>

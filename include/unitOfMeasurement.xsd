@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>Physical unit of measurement enumeration for gravity and oceanographic field quantities</xs:documentation>
+  </xs:annotation>
+
+  <xs:simpleType name="unitOfMeasurement">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="m">
+        <xs:annotation>
+          <xs:documentation>Metres — unit of length/height/depth</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="m/s">
+        <xs:annotation>
+          <xs:documentation>Metres per second — unit of velocity (e.g. geostrophic velocity)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="m/s²">
+        <xs:annotation>
+          <xs:documentation>Metres per second squared — unit of acceleration (e.g. gravity anomaly in SI)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
