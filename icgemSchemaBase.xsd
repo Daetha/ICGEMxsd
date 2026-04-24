@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://icgem.gfz.de/schema"
-           xmlns:icgv="http://icgem.gfz.de/schema"
-           xmlns:dc="http://datacite.org/schema/kernel-4" 
+           xmlns:grav="http://icgem.gfz.de/schema"
+           xmlns:dace="http://datacite.org/schema/kernel-4"
            elementFormDefault="qualified">
 
   <xs:import namespace="http://datacite.org/schema/kernel-4" 
@@ -13,9 +13,9 @@
   <xs:element name="envelope">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="dc:resource"/>
+        <xs:element ref="dace:resource"/>
         
-        <xs:element ref="icgv:globalGravityProduct"/>
+        <xs:element ref="grav:globalGravityProduct"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            version="1"
            targetNamespace="http://icgem.gfz.de/schema"
-           xmlns:icgv="http://icgem.gfz.de/schema"
+           xmlns:grav="http://icgem.gfz.de/schema"
            elementFormDefault="qualified">
   <xs:annotation>
     <xs:documentation>Model type classification for gravity field models</xs:documentation>
