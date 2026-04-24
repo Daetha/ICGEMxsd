@@ -17,8 +17,7 @@
 		</grav:errors>
 		<grav:errorHandling>String</grav:errorHandling>
 		<grav:temporalModelProperties>
-			<grav:startDate>1957-08-13</grav:startDate>
-			<grav:stopDate>1957-08-13</grav:stopDate>
+			<grav:temporalCoverage>1957-08-13/1957-08-13</grav:temporalCoverage>
 			<grav:generatingInstitution>String</grav:generatingInstitution>
 			<grav:release>String</grav:release>
 			<grav:temporalResolution uom="Day">0</grav:temporalResolution>

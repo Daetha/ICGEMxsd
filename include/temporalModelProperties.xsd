@@ -2,16 +2,30 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            version="1"
            xmlns="http://icgem.gfz.de/schema" 
-           targetNamespace="http://icgem.gfz.de/schema" 
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns:dace="http://datacite.org/schema/kernel-4"
            elementFormDefault="qualified">
+
+  <xs:import namespace="http://datacite.org/schema/kernel-4"
+             schemaLocation="includeDatacite/4.7/metadata.xsd"/>
+
   <xs:annotation>
     <xs:documentation>Temporal properties for time-varying gravity field models</xs:documentation>
   </xs:annotation>
 
   <xs:complexType name="temporalModelsProperties">
     <xs:sequence>
-      <xs:element name="startDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="stopDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="temporalCoverage" type="dace:edtf" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Temporal coverage of the gravity field model expressed as a DataCite EDTF date range.
+            Format: YYYY-MM-DD/YYYY-MM-DD (e.g. "2002-04-01/2024-12-31").
+            Supports year-only precision (2002/2024), open-ended ranges (2002-04-01/open),
+            and unknown endpoints (unknown/2024-12-31).
+            Reuses the DataCite edtf simpleType, consistent with dc:resource/dates in the envelope.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="generatingInstitution" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="release" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="temporalResolution" minOccurs="0" maxOccurs="1">
