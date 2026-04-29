@@ -73,8 +73,8 @@
                     </xs:element>
                     <xs:element name="givenName" minOccurs="0" />
                     <xs:element name="familyName" minOccurs="0" />
-                    <xs:element name="nameIdentifier" xsi:type="nameIdentifier" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="affiliation" xsi:type="affiliation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="nameIdentifier" type="nameIdentifier" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="affiliation" type="affiliation" minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -184,8 +184,8 @@
                     </xs:element>
                     <xs:element name="givenName" minOccurs="0" />
                     <xs:element name="familyName" minOccurs="0" />
-                    <xs:element name="nameIdentifier" xsi:type="nameIdentifier" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="affiliation" xsi:type="affiliation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="nameIdentifier" type="nameIdentifier" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="affiliation" type="affiliation" minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                   <xs:attribute name="contributorType" type="contributorType" use="required" />
                 </xs:complexType>
