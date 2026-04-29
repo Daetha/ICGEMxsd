@@ -12,6 +12,7 @@
   <xs:include schemaLocation="include/staticModelProperties.xsd"/>
   <xs:include schemaLocation="include/ellipsoidalParameters.xsd"/>
   <xs:include schemaLocation="include/description.xsd"/>
+  <xs:include schemaLocation="include/errors.xsd"/>
   <xs:include schemaLocation="include/inputDataSource.xsd"/>
   <xs:include schemaLocation="include/modelType.xsd"/>
   <xs:include schemaLocation="include/celestialBody.xsd"/>
