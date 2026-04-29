@@ -7,7 +7,7 @@
            elementFormDefault="qualified">
 
   <xs:import namespace="http://datacite.org/schema/kernel-4"
-             schemaLocation="../../includeDatacite/4.7/metadata.xsd"/>
+             schemaLocation="../includeDatacite/4.7/metadata.xsd"/>
 
   <xs:annotation>
     <xs:documentation>Temporal coverage type for altimetry-derived gravity field models</xs:documentation>
