@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1"
+           targetNamespace="http://icgem.gfz.de/schema"
+           xmlns:grav="http://icgem.gfz.de/schema"
+           elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+        The person or organisation which can be contacted regarding the further publication of the Global Gravity Product under question
+        Defined in this scheme explicitly, stilisticall adapted from the ISO 19115 CI_Contact class
+        The prescence of contact email is necessary for submission of dataset.
+    </xs:documentation>
+  </xs:annotation>
+
+<xs:complexType name="CI_Contact">
+  <xs:sequence>
+    <xs:element name="address" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+    <xs:element name="onlineResource" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="contactInstructions" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+</xs:complexType>

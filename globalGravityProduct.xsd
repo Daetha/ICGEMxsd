@@ -20,11 +20,13 @@
   <xs:include schemaLocation="include/fileFormat.xsd"/>
   <xs:include schemaLocation="include/tideSystem.xsd"/>
   <xs:include schemaLocation="include/spatialCoverage.xsd"/>
-
+  <xs:include schemaLocation="include/contact.xsd"/>
+  
 
   <xs:element name="globalGravityProduct">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="contact" type="CI_Contact" minOccurs="1" maxOccurs="1"/>
         <xs:choice>
           <xs:annotation>
             <xs:documentation>Exactly one of the following model types is required: harmonicCoefficientsModel, masconModel, or altimetryDerivedModel. This xs:choice inside xs:all is valid in XSD 1.1</xs:documentation>
