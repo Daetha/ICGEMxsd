@@ -19,3 +19,4 @@
     <xs:element name="contactInstructions" type="xs:string" minOccurs="0"/>
   </xs:sequence>
 </xs:complexType>
+</xs:schema>
