@@ -38,7 +38,7 @@
     <xs:complexType>
       <xs:all>
         <!--REQUIRED FIELDS-->
-        <xs:element name="identifier">
+        <xs:element name="identifier" minOccurs="0" maxOccurs="1">
           <xs:annotation>
             <xs:documentation>A persistent identifier that identifies a resource.</xs:documentation>
           </xs:annotation>
