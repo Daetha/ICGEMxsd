@@ -115,6 +115,27 @@ Use the schema files to validate your XML documents:
 - Main schema: `globalGravityProduct.xsd`
 - Include schemas in `include/` folder for modular validation
 
+### DataCite Submodule
+The DataCite schema repository is tracked as the git submodule `external/datacite-schema`.
+
+When cloning this repository directly, or when initializing it as a submodule of another repository, run:
+
+```bash
+git submodule update --init --recursive
+```
+
+To advance the DataCite submodule to the latest upstream `master` commit recorded by `.gitmodules`, run:
+
+```bash
+git submodule update --remote --recursive
+```
+
+This repository imports DataCite locally from:
+
+```text
+external/datacite-schema/source/meta/kernel-4/metadata.xsd
+```
+
 ---
 
 ## 📁 File Organization
@@ -134,12 +155,15 @@ icgem-xml-schema/
 │   ├── temporalModelProperties.xsd
 │   ├── tideSystem.xsd
 │   ├── topographicModelProperties.xsd
-│   └── include4datasources/          # Data source definitions
+│   ├── include4datasources/          # Data source definitions
 │       ├── altimetryDetails.xsd
 │       ├── elevationTerrainDetails.xsd
 │       ├── groundDetails.xsd
 │       ├── inputDataSourceType.xsd
 │       └── modelDetails.xsd
+├── external/
+│   └── datacite-schema/              # Full DataCite git submodule
+│       └── source/meta/kernel-4/metadata.xsd
 └── README.md                          # This file
 ```
 

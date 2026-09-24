@@ -6,7 +6,7 @@
            elementFormDefault="qualified">
 
   <xs:import namespace="http://datacite.org/schema/kernel-4" 
-             schemaLocation="include/includeDatacite/4.7/metadata.xsd"/>
+             schemaLocation="external/datacite-schema/source/meta/kernel-4/metadata.xsd"/>
 
   <xs:include schemaLocation="globalGravityProduct.xsd"/>
 

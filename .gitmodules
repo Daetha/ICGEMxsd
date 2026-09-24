@@ -1,0 +1,4 @@
+[submodule "external/datacite-schema"]
+	path = external/datacite-schema
+	url = https://github.com/datacite/schema
+	branch = master
