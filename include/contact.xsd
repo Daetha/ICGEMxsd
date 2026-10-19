@@ -14,6 +14,17 @@
 
 <xs:complexType name="CI_Contact">
   <xs:sequence>
+    <xs:element name="type" minOccurs="1" maxOccurs="1">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="personal"/>
+          <xs:enumeration value="institutional"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:element>
+    <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    <xs:element name="identifier" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="identifierType" type="xs:string" minOccurs="0" maxOccurs="1"/>
     <xs:element name="address" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
     <xs:element name="onlineResource" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
     <xs:element name="contactInstructions" type="xs:string" minOccurs="0"/>
