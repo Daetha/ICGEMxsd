@@ -17,7 +17,7 @@
 
 <xs:complexType name="CI_Contact">
   <xs:sequence>
-    <xs:element name="type" type="dace:nameType" minOccurs="1" maxOccurs="1"/>
+    <xs:element name="nameType" type="dace:nameType" minOccurs="1" maxOccurs="1"/>
     <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
     <xs:element name="identifier" type="xs:string" minOccurs="0" maxOccurs="1"/>
     <xs:element name="identifierType" type="xs:string" minOccurs="0" maxOccurs="1"/>
